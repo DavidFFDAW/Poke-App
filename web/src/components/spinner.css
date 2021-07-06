@@ -1,0 +1,10 @@
+.rotation{
+    animation: pokeballRotate 1s infinite;
+}
+.spinner{ 
+    transform: translateY(-50%);
+}
+
+@keyframes pokeballRotate {
+    90% { transform: rotate(360deg); }
+}

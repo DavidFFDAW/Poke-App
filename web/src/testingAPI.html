@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        const endpoint = 'https://pokeapi.co/api/v2/pokemon?limit=10&offset=0';
+
+        const get = (url) => {
+            return fetch(url,{ method: 'GET', mode: 'cors'})
+            .then(response => response.json());
+        }
+
+        const pokemons = () => {
+            get(endpoint).then(resp => {
+                const newData = resp.results.map(singlePokemon => {
+                    get(singlePokemon.url).then(data => {
+                        singlePokemon.data = data;
+                        return data;
+                    });
+                    return singlePokemon;
+                });
+                return newData;
+                console.log(newData);
+            })
+        }
+    </script>
+</body>
+</html>

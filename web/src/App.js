@@ -1,24 +1,21 @@
-import logo from './logo.svg';
+import React from 'react';
+import PokeHeader from './components/PokeHeader';
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
+import HomePage from './pages/Home';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <PokeHeader></PokeHeader>
+      <Switch>
+        <Route path="/">
+          <HomePage/>
+        </Route>
+        <Route path="/pokemon/search/:pokemon"></Route>
+        <Route path="/pokemon/:pokemon"></Route>
+      </Switch>
+    </Router>
   );
 }
 
