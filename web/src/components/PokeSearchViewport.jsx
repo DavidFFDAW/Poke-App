@@ -1,16 +1,22 @@
 import React,{ useState, useEffect, Suspense } from 'react';
-import PokeBallSpinner from './PokeBallSpinner';
 import { getFirstPokemons } from '../services/PokeAPI.service';
+import PokeBallSpinner from './PokeBallSpinner';
+import { useHistory } from 'react-router-dom';
 import PokeCard from './PokeCard';
 import './searchViewport.css';
 
 export default function PokeSearchViewport(){
 
     const [ pokemons, setPokemons ] = useState([]);
+    const history = useHistory();
 
     useEffect(_ => {
         getFirstPokemons().then(pokemons => setPokemons(pokemons.results));        
     },[]);
+
+    const handleShowPokeDetail = (pokemonName) => {
+        history.push(`/pokemon/${ pokemonName }`);
+    }
 
     return (
         <>
@@ -18,8 +24,9 @@ export default function PokeSearchViewport(){
                 <div className="pokeViewport">
                     {
                         pokemons.map(singlePokemon => <PokeCard 
-                            key={ singlePokemon.id }
+                            key={ singlePokemon.name }
                             name={ singlePokemon.name }
+                            onClick={ _ => handleShowPokeDetail(singlePokemon.name) }
                             />
                         )
                     }

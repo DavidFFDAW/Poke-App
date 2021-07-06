@@ -6,6 +6,19 @@ const getFirstFiftyPokemons = async _ => {
     return pokemons.json();
 }
 
+const getEvolutionChain = async id => {
+    const evolutionChainEndpoint = `evolution-chain/${id}`;
+    const pokeEvolutionChain = await fetch(`${endpoint}/${evolutionChainEndpoint}`); 
+    return pokeEvolutionChain.json();
+}
+
+const getPokemonDetails = async pokemonName => {
+    const pokemonDetails = await fetch(`${endpoint}/pokemon/${pokemonName}`);
+    return pokemonDetails.json();
+};
+
 module.exports = {
     getFirstPokemons: getFirstFiftyPokemons,
+    getPokeEvolutions: getEvolutionChain,
+    getPokemonDetails,
 }
