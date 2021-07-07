@@ -1,7 +1,8 @@
 .poke-detail-card {
+    padding: 2vh 5vh;
     position: relative;
-    min-width: 30vh;
-    min-height: 50vh;
+    min-width: 33vh;
+    min-height: 60vh;
     background-color: rgb(255, 255, 255);
     box-shadow: 0 0 16px rgba(0,0,0,0.2);
     border-radius: 20px;
@@ -37,6 +38,13 @@
     font-size: 15px;
     font-weight: bold;
     margin: 0 5px;
+}
+.poke-detail-card .poke-ability{
+    display: block;
+    width: 80%;
+    padding: 12px;
+    background-color: rgb(223, 223, 223);
+    border-radius: 50vh;
 }
 .poke-detail-card .top-decoration {
     position: absolute;

@@ -1,4 +1,5 @@
-.flex { display: flex; }
+.flex { display: flex; align-items: center; }
 .flex.center { justify-content: center; }
 .flex.between { justify-content: space-between; }
 .vertical-center{ box-sizing: border-box; padding: 25px 0; }
+.down{ margin-top: 25px; }

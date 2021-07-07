@@ -38,6 +38,20 @@ const PokemonData = (pokeData) => {
                         }}>{ types[type.type.name].trad }</span>   
                     ) }
                 </div>
+                <div className="flex between down">
+                    <div>
+                        <span><strong>Habilidades</strong>:</span>
+                    </div>
+                    <div>
+                        { data.abilities.map(ability => 
+                            <span key={ ability } className="poke-ability">{ ability.ability.name }</span>
+                        )}
+                    </div>
+                </div>
+
+                <div className="flex center">
+                    <span className="poke-moves">Movimientos</span>
+                </div>
             </div>
         </div>
     );
