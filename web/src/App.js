@@ -1,5 +1,5 @@
 import React from 'react';
-import PokeHeader from './components/PokeHeader';
+import PokeHeader from './components/PokeHeader/PokeHeader';
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import HomePage from './pages/Home';
 import PokemonDetailPage from './pages/PokemonDetailPage';

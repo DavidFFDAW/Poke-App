@@ -1,8 +1,8 @@
 import React,{ useState, useEffect, Suspense } from 'react';
-import { getFirstPokemons } from '../services/PokeAPI.service';
-import PokeBallSpinner from './PokeBallSpinner';
+import { getFirstPokemons } from '../../services/PokeAPI.service';
+import PokeBallSpinner from '../PokeSpinner/PokeBallSpinner';
 import { useHistory } from 'react-router-dom';
-import PokeCard from './PokeCard';
+import PokeCard from '../PokeCard/PokeCard';
 import './searchViewport.css';
 
 export default function PokeSearchViewport(){

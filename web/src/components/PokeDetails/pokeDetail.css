@@ -1,0 +1,44 @@
+.poke-detail-card {
+    position: relative;
+    min-width: 30vh;
+    min-height: 50vh;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 16px rgba(0,0,0,0.2);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.poke-detail-card:hover {
+    opacity: 0.7;
+    background-color: #f1f1f1;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+.poke-detail-card .poke-details {
+    z-index: 1;
+    width: 100%;
+}
+.poke-detail-card .poke-name {
+    text-transform: uppercase;
+}
+.poke-detail-card .poke-pic {
+    width: 80%;
+    height: 200px;
+}
+.poke-detail-card .poke-type-tag {
+    padding: 10px;
+    border-radius: 30px;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: bold;
+}
+.poke-detail-card .top-decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    min-height: 70px;
+    border-radius: 20px 20px 0 0;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    width: 100%;
+}

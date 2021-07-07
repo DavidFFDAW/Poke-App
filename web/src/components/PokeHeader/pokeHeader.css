@@ -16,6 +16,15 @@
     box-sizing: border-box;
     padding-right: 50px;
 }
+.header-home-link{
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 30px;
+    transition: all 0.2s;
+}
+.header-home-link:hover{
+    background-color: #b63e3e;
+}
 .poke-header span {
     font-weight: bold;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
