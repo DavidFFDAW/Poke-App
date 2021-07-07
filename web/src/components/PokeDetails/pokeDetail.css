@@ -19,24 +19,31 @@
 }
 .poke-detail-card .poke-name {
     text-transform: uppercase;
+    font-size: 22px;
 }
 .poke-detail-card .poke-pic {
     width: 80%;
     height: 200px;
 }
+.poke-detail-card .no-margin {
+    text-transform: capitalize;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
 .poke-detail-card .poke-type-tag {
-    padding: 10px;
+    padding: 10px 20px;
     border-radius: 30px;
     text-transform: uppercase;
     font-size: 15px;
     font-weight: bold;
+    margin: 0 5px;
 }
 .poke-detail-card .top-decoration {
     position: absolute;
     top: 0;
     left: 0;
     z-index: 0;
-    min-height: 70px;
+    min-height: 90px;
     border-radius: 20px 20px 0 0;
     border-bottom-left-radius: 50%;
     border-bottom-right-radius: 50%;

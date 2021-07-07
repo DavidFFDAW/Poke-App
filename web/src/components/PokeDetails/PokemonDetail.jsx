@@ -9,8 +9,9 @@ const PokemonData = (pokeData) => {
     const thisTypeColors = types[data.types[0].type.name];
 
     const decorationColor = {
-        backgroundColor: thisTypeColors.bg,
+        background: thisTypeColors.bg,
     }
+
     const fontColor = {
         color: thisTypeColors.font
     }
@@ -27,11 +28,14 @@ const PokemonData = (pokeData) => {
                     <img className="poke-pic" src={ data.sprites.front_default }></img>
                 </div>
                 <div className="flex center">
+                    <span className="poke-name no-margin">{ data.name }</span>
+                </div>
+                <div className="flex center">
                     { data.types.map(type => 
                         <span key={ type.type.name } className="poke-type-tag" style={{
-                            backgroundColor: types[type.type.name].bg,
+                            background: types[type.type.name].bg,
                             color: types[type.type.name].font,
-                        }}>{ type.type.name }</span>   
+                        }}>{ types[type.type.name].trad }</span>   
                     ) }
                 </div>
             </div>
