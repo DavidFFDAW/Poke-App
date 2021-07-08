@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { types } from '../../constants/types.data';
 import { getPokemonDetails } from '../../services/PokeAPI.service';
 import PokeBallSpinner from '../PokeSpinner/PokeBallSpinner';
+import abilitiesTranslation from '../../i18n/abilities';
 import './pokeDetail.css';
 
 const PokemonData = (pokeData) => {
@@ -43,8 +44,8 @@ const PokemonData = (pokeData) => {
                         <span><strong>Habilidades</strong>:</span>
                     </div>
                     <div>
-                        { data.abilities.map(ability => 
-                            <span key={ ability } className="poke-ability">{ ability.ability.name }</span>
+                        { data.abilities.map(({ ability }) => 
+                            <span key={ ability.name } className="poke-ability" data-ability={ ability.name }>{ abilitiesTranslation[ability.name] ? abilitiesTranslation[ability.name] : ability.name }</span>
                         )}
                     </div>
                 </div>
