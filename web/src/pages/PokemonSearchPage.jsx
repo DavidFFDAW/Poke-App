@@ -29,7 +29,7 @@ export default function PokemonSearchPage(){
             setPokeSearchList(pokemons);
             setLoading(false);
         });
-    } , []);
+    } , [ name ]);
 
     return (
         <div className="flex center pokeViewport">
