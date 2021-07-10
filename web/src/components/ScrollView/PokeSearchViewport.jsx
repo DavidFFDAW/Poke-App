@@ -11,7 +11,9 @@ export default function PokeSearchViewport(){
     const history = useHistory();
 
     useEffect(_ => {
-        getFirstPokemons().then(pokemons => setPokemons(pokemons.results));        
+        getFirstPokemons().then(pokemons => {
+            setPokemons(pokemons.results)
+        });        
     },[]);
 
     const handleShowPokeDetail = (pokemonName) => {

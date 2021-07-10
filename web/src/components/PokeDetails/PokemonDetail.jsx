@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { types } from '../../constants/types.data';
 import { getPokemonDetails } from '../../services/PokeAPI.service';
 import PokeBallSpinner from '../PokeSpinner/PokeBallSpinner';
+import { useHistory } from 'react-router';
 import abilitiesTranslation from '../../i18n/abilities';
 import './pokeDetail.css';
 
 const PokemonData = (pokeData) => {
     const { data } = pokeData;
     const thisTypeColors = types[data.types[0].type.name];
+    const history = useHistory();
 
     const decorationColor = {
         background: thisTypeColors.bg,
@@ -15,6 +17,10 @@ const PokemonData = (pokeData) => {
 
     const fontColor = {
         color: thisTypeColors.font
+    }
+
+    const getThisPokemonDetails = (pokename) => {
+        history.push(`/pokemon/${pokename}`);
     }
 
 
@@ -39,7 +45,7 @@ const PokemonData = (pokeData) => {
                         }}>{ types[type.type.name].trad }</span>   
                     ) }
                 </div>
-                <div className="flex between down">
+                {/* <div className="flex between down">
                     <div>
                         <span><strong>Habilidades</strong>:</span>
                     </div>
@@ -48,10 +54,9 @@ const PokemonData = (pokeData) => {
                             <span key={ ability.name } className="poke-ability" data-ability={ ability.name }>{ abilitiesTranslation[ability.name] ? abilitiesTranslation[ability.name] : ability.name }</span>
                         )}
                     </div>
-                </div>
-
-                <div className="flex center">
-                    <span className="poke-moves">Movimientos</span>
+                </div> */}
+                <div className="flex center down">
+                    <button type="button" className="btn btn-download" onClick={ _ => getThisPokemonDetails(data.name) }>Ver Detalles</button>
                 </div>
             </div>
         </div>

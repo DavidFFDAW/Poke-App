@@ -13,7 +13,7 @@
     box-sizing: border-box;
     padding-left: 50px;
 }
-.poke-header:last-child{
+.poke-header :last-child{
     box-sizing: border-box;
     padding-right: 50px;
 }
@@ -26,8 +26,33 @@
 .header-home-link:hover{
     background-color: #b63e3e;
 }
+.poke-header .poke-logo {
+    width: 40px;
+    height: 40px;
+    margin: 0 20px 0 0;
+}
 .poke-header span {
     font-weight: bold;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 20px;
+}
+.poke-header input.text-search {
+    font-weight: bold;
+    color: #3a3939;
+    outline: none;
+    padding: 8px 20px;
+    font-size: 14px;
+    margin: 0 2px;
+    border: none;
+    border-radius: 20px 0 0 20px;
+    transition: all 0.2s;
+}
+.btn.btn-search {
+    background-color: #ffffff;
+    color: #000;
+    border-radius: 0 20px 20px 0;
+}
+.btn.btn-search:hover {
+    color: #3a3939;
+    background-color: #dddddd;
 }
