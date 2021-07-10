@@ -14,7 +14,17 @@ export const getEvolutionChain = async id => {
 
 export const getPokemonDetails = async pokemonName => {
     const pokemonDetails = await fetch(`${endpoint}/pokemon/${pokemonName}`);
-    return pokemonDetails.json();
+    const details = await pokemonDetails.json();
+    const areaEncountersFetch = await fetch(`${details.location_area_encounters}`);
+    const areaEncounters = await areaEncountersFetch.json();
+    
+    const speciesInfoFetch = await fetch(`${details.species.url}`);
+    const speciesInfo = await speciesInfoFetch.json();
+    
+    details.area_encounters = areaEncounters;
+    details.specieInfo = speciesInfo;
+    
+    return details;
 };
 
 export const getAllPokemons = async () => {

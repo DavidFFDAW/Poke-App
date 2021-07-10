@@ -1,12 +1,17 @@
 .flex { display: flex; align-items: center; }
+.flex-not-align { display: flex; }
+.flex-start { display: flex; align-items: flex-start; place-items: flex-start; }
 .flex.center { justify-content: center; }
+.flex-not-align.center { justify-content: center; }
 .flex.between { justify-content: space-between; }
+.flex-start.between { justify-content: space-between; }
 .vertical-center{ box-sizing: border-box; padding: 25px 0; }
 .down{ margin-top: 25px; }
 .flxwrap { flex-wrap: wrap; }
 .w-100{ width: 100%; min-width: 100%; }
 .btn{
     padding: 8px 20px;
+    text-decoration: none;
     text-align: center;
     text-transform: uppercase;
     font-size: 14px;
@@ -23,3 +28,28 @@
     color: #fff;
 }
 .btn.btn-download:hover { background-color: #722525; }
+
+.error{
+    margin: 0;
+    color: #3a3939;
+    font-size: 40px;
+}
+.error strong {
+    color: #e64d4d;
+    font-size: 45px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.rounded-box{
+    box-sizing: border-box;
+    padding: 25px;
+    min-height: 300px;
+    width: 100%;
+    margin: 20px auto;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.rounded-box.first {
+    margin: 0 auto;
+}

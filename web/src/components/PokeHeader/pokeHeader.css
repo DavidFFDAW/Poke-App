@@ -13,7 +13,7 @@
     box-sizing: border-box;
     padding-left: 50px;
 }
-.poke-header :last-child{
+.poke-header .last{
     box-sizing: border-box;
     padding-right: 50px;
 }
@@ -55,4 +55,37 @@
 .btn.btn-search:hover {
     color: #3a3939;
     background-color: #dddddd;
+}
+.go-back {
+    position: relative;
+    background-color: transparent;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 50%;
+    font-weight: bold;
+    outline: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.5s;
+}
+.arrow {
+    border: 5px solid #fff;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+.arrow.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+.go-back:hover {
+    animation: arrow_move 1.5s infinite;
+}
+
+@keyframes arrow_move {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(-20px, 0); }
+    100% { transform: translate(0, 0); }
 }

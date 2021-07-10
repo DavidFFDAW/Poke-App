@@ -1,5 +1,5 @@
 import React from 'react';
-import PokemonDetail from '../components/PokeDetails/PokemonDetail';
+import PokemonFullDetails from '../components/PokeFullDetails/PokemonFullDetails';
 import ScrollView from '../components/ScrollView/ScrollView';
 import { useParams } from 'react-router-dom';
 
@@ -9,8 +9,9 @@ export default function PokeDetailPage(){
 
     return (
         <>
+            <div className="flex center details-title-name bg-top">{ name }</div>
             <ScrollView>
-                <PokemonDetail name={ name }/>
+                <PokemonFullDetails name={ name }/>
             </ScrollView>
         </>
     );

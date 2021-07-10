@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { types } from '../../constants/types.data';
 import { getPokemonDetails } from '../../services/PokeAPI.service';
 import PokeBallSpinner from '../PokeSpinner/PokeBallSpinner';
-import { useHistory } from 'react-router';
+import { useHistory, Link } from 'react-router-dom';
 import abilitiesTranslation from '../../i18n/abilities';
 import './pokeDetail.css';
 
@@ -57,7 +57,7 @@ const PokemonData = (pokeData) => {
                     ) }
                 </div>                
                 <div className="flex center down">
-                    <button type="button" className="btn btn-download" onClick={ _ => getThisPokemonDetails(data.name) }>Ver Detalles</button>
+                    <Link type="button" className="btn btn-download" to={`/pokemon/${data.name}` }>Ver Detalles</Link>
                 </div>
             </div>
         </div>
@@ -68,7 +68,6 @@ export default function PokemonDetail({ name }) {
     
     const [ pokeInfo, setPokeInfo ] = useState({});
     const [ isLoading, setLoading ] = useState(true);
-    const [ pokeEvolutions, setPokeEvolutions ] = useState([]);
 
     useEffect(_ => {
         getPokemonDetails(name).then(details => {

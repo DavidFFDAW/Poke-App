@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router';
+import { useHistory, useLocation } from 'react-router-dom';
 import { config } from '../../constants/config';
 /*import { getFilteredPokemonsByName } from '../../services/PokeAPI.service';*/
 import './pokeHeader.css';
+
 
 export default function PokeHeader() {
 
     const [ keyword, setKeyword ] = useState( localStorage.getItem('lastSearch') || '' );
     const history = useHistory();
-
-    const getRandomNumber = (max, min) => Math.floor(Math.random() * (max - min) + min);
+    const { pathname } = useLocation();
 
     const handleChangeKeyword = (ev) => {        
         localStorage.setItem( 'lastSearch', ev.target.value );
@@ -25,14 +25,23 @@ export default function PokeHeader() {
         history.push('/');
     }
 
+    const handleGoBack = () => {
+        history.goBack();
+    }
+
     return (
         <>
             <div className="flex between poke-header">
-                <div className="vertical-center header-home-link flex between" onClick={ handleSendHome }>
+                { pathname !== '/' && <div onClick={ handleGoBack }>
+                    <div className="go-back">                        
+                        <p><i className="arrow left"></i></p>
+                    </div>
+                </div> }
+                <div className="header-home-link flex between" onClick={ handleSendHome }>
                     <img className="poke-logo" src={ `${config.appUrl}/pokeball.png` }></img>
                     <span>PokeInfo App</span>
                 </div>
-                <div className="vertical-center">
+                <div className="last">
                     <input className="text-search" type="text" value={ keyword } onChange={ handleChangeKeyword }/>
                     <button className="btn btn-search" type="button" onClick={ handleSearchPokemon }>Buscar</button>
                 </div>
