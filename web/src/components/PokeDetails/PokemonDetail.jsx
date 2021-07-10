@@ -7,6 +7,7 @@ import abilitiesTranslation from '../../i18n/abilities';
 import './pokeDetail.css';
 
 const PokemonData = (pokeData) => {
+
     const { data } = pokeData;
     const thisTypeColors = types[data.types[0].type.name];
     const history = useHistory();
@@ -14,9 +15,19 @@ const PokemonData = (pokeData) => {
     const decorationColor = {
         background: thisTypeColors.bg,
     }
+    
 
-    const fontColor = {
-        color: thisTypeColors.font
+    const fontStyle = (name, color) => {
+        
+        const style = { 
+            color: color ? thisTypeColors.font : '#000',
+        };
+
+        if(name.length > 10) style.fontSize = '1.2em';
+        if(name.length > 15) style.fontSize = '0.9em';
+        if(name.length > 20) style.fontSize = '0.5em';
+
+        return style;
     }
 
     const getThisPokemonDetails = (pokename) => {
@@ -29,13 +40,13 @@ const PokemonData = (pokeData) => {
             <div className="top-decoration" style={ decorationColor }></div>
             <div className="poke-details">
                 <div className="flex center">
-                    <h3 className="poke-name" style={ fontColor }>{ data.name }</h3>
+                    <h3 className="poke-name" style={ fontStyle(data.name,true) }>{ data.name }</h3>
                 </div>
-                <div className="flex center">
+                <div className="flex center img-fixed-size">
                     <img className="poke-pic" src={ data.sprites.front_default }></img>
                 </div>
                 <div className="flex center">
-                    <span className="poke-name no-margin">{ data.name }</span>
+                    <span className="poke-name no-margin" style={ fontStyle(data.name,false) }>{ data.name }</span>
                 </div>
                 <div className="flex center">
                     { data.types.map(type => 
@@ -44,17 +55,7 @@ const PokemonData = (pokeData) => {
                             color: types[type.type.name].font,
                         }}>{ types[type.type.name].trad }</span>   
                     ) }
-                </div>
-                {/* <div className="flex between down">
-                    <div>
-                        <span><strong>Habilidades</strong>:</span>
-                    </div>
-                    <div>
-                        { data.abilities.map(({ ability }) => 
-                            <span key={ ability.name } className="poke-ability" data-ability={ ability.name }>{ abilitiesTranslation[ability.name] ? abilitiesTranslation[ability.name] : ability.name }</span>
-                        )}
-                    </div>
-                </div> */}
+                </div>                
                 <div className="flex center down">
                     <button type="button" className="btn btn-download" onClick={ _ => getThisPokemonDetails(data.name) }>Ver Detalles</button>
                 </div>
