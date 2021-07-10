@@ -1,4 +1,4 @@
-const typesColors = {
+export const types = {
     fire: { bg: '#ffac38', font: '#000', trad: 'Fuego' },
     water: { bg: '#4cbefc', font: '#fff', trad: 'Agua' },
     grass: { bg: '#24a65a', font: '#fff', font: '#fff', trad: 'Planta' },
@@ -16,17 +16,11 @@ const typesColors = {
     bug: { bg: '#abf5d3', font: '#000', trad: 'Bicho' },
     ice: { bg: '#95eaed', font: '#000', trad: 'Hielo' },
     dark: { bg: 'linear-gradient(#141414,#787878)', font: '#fff', trad: 'Siniestro' },
-    flying: { bg: '#8bbbc9', font: '#fff', trad: 'Volador' }
+    flying: { bg: '#8bbbc9', font: '#fff', trad: 'Volador' },
 };
 
-const typesWeakness = {
+export const typesWeakness = {
     fire: [],
     water: [],
     // ...
 };
-
-
-module.exports = {
-    types: typesColors,
-    weakness: typesWeakness,
-}

@@ -6,7 +6,7 @@ import './pokeHeader.css';
 
 export default function PokeHeader() {
 
-    const [ keyword, setKeyword ] = useState('');
+    const [ keyword, setKeyword ] = useState( localStorage.getItem('lastSearch') || '' );
     const history = useHistory();
 
     const getRandomNumber = (max, min) => Math.floor(Math.random() * (max - min) + min);

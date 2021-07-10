@@ -1,4 +1,4 @@
-import React,{ useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import PokeSpinner from '../components/PokeSpinner/PokeBallSpinner';
 import { getFilteredPokemonsByName } from '../services/PokeAPI.service';
