@@ -1,5 +1,6 @@
 .flex { display: flex; align-items: center; }
 .flex-not-align { display: flex; }
+.flex-strt{ display: flex; justify-content: flex-start; }
 .flex-start { display: flex; align-items: flex-start; place-items: flex-start; }
 .flex.center { justify-content: center; }
 .flex-not-align.center { justify-content: center; }
@@ -40,11 +41,58 @@
     font-weight: bold;
     text-transform: capitalize;
 }
+.title{
+    margin: 0;
+    margin-top: -15px;
+    font-size: 22px;
+    color: #e64d4d;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.title.box-title::after {
+    content: " ";
+    position: absolute;
+    top: 55px;
+    left: 50%;
+    width: 100%;
+    height: 1px;
+    margin-top: -10px;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+    transform: translate(-50%, -50%)
+}
+.poke-type-tag {
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0 5px;
+}
+.poke-type-tag.small{
+    padding: 4px 10px;
+    border-radius: 30px;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0 5px;
+}
+.tag { 
+    margin: 5px 5px;
+    padding: 4px 10px;
+    border-radius: 30px;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.default-tag{  color: #3a3939; background: #dddcdc; }
+.default-tag:hover { background: #bdbdbd; }
 
 .rounded-box{
+    position: relative;
     box-sizing: border-box;
     padding: 25px;
-    min-height: 300px;
+    min-height: 100px;
     width: 100%;
     margin: 20px auto;
     border-radius: 20px;
@@ -52,4 +100,22 @@
 }
 .rounded-box.first {
     margin: 0 auto;
+}
+.rounded-box .body {
+    box-sizing: border-box;
+    padding: 20px 0;
+}
+.footer{
+    background: #e64d4d;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    color: #fff;
+    padding: 5px;
+    z-index: 100;
+}
+.footer a {
+    text-decoration: none;
+    color: #fff;
 }

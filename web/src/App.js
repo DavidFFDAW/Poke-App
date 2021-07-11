@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import PokeHeader from './components/PokeHeader/PokeHeader';
+import PokeFooter from './components/PokeFooter/PokeFooter';
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import { getAllPokemons } from './services/PokeAPI.service';
 
@@ -24,6 +25,7 @@ function App() {
           <PokemonSearchPage/>
         </Route>
       </Switch>
+      <PokeFooter></PokeFooter>
     </Router>
   );
 }

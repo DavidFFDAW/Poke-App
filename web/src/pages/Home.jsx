@@ -15,6 +15,7 @@ export default function HomePage(){
     
     return (
         <>
+            {/* Presentation page */}
             <PokeSearchViewport/>        
         </>
     );

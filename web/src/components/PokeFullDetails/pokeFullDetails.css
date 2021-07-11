@@ -68,7 +68,7 @@
     padding: 10px 10px;
     font-size: 15px;
 }
-.details-card .info-row::after {
+.details-card .info-row.line::after {
     content: "";
     position: absolute;
     display: block;

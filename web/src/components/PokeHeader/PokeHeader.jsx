@@ -18,7 +18,7 @@ export default function PokeHeader() {
 
     const handleSearchPokemon = () => {
         const search = keyword === '' ? localStorage.getItem('lastSearch') || 'def' : keyword;
-        history.push(`/pokemon/search/${ search }`);
+        history.push(`/pokemon/search/${ search.toLowerCase() }`);
     }
 
     const handleSendHome = () => {

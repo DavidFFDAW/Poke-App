@@ -27,6 +27,22 @@ export const getPokemonDetails = async pokemonName => {
     return details;
 };
 
+export const getPokeTextWithNotSameURL = (pokeTextArray) => {
+    const pokeTextWithNotSameURL = [];
+
+    console.log(pokeTextArray);
+
+    return pokeTextArray.reduce((prev, current) => {
+        console.log(prev);
+        if (prev.version) {
+            if (prev.version.url !== current.version.url) {
+                pokeTextWithNotSameURL.push(current);
+            }
+        }
+        return pokeTextWithNotSameURL;
+    }, []);
+}
+
 export const getAllPokemons = async () => {
     const pokemons = await fetch(`${endpoint}/pokemon?limit=1118`);
     return pokemons.json();
