@@ -1,0 +1,8 @@
+version: '3.1'
+
+services:
+    pokeapp:
+        build: .
+        restart: always
+        ports:
+            - 1118:3000
