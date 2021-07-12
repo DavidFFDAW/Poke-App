@@ -10,6 +10,7 @@
 .down{ margin-top: 25px; }
 .flxwrap { flex-wrap: wrap; }
 .w-100{ width: 100%; min-width: 100%; }
+.all-margins * { margin: 0 5px; }
 .btn{
     padding: 8px 20px;
     text-decoration: none;
