@@ -8,6 +8,7 @@
     background-color: #fff;
     margin: 0 10px;
 }
+.details-card .tag{ margin: 0; margin-right: -5px; }
 .details-text{ width: 75%; margin: 0 20px; }
 .bg-top{ background: linear-gradient(#e64d4d,#fff); z-index: 2; }
 

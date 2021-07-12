@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="" target="blank"><img src="./web/public/pokeball.png" width="100" alt="Nest Logo" /></a>
+  <a href="" target="blank"><img src="./public/pokeball.png" width="100" alt="Poke Ball logo" /></a>
 </p>
 
 <p align="center" ><b>PokeInfo App</b>, la aplicación de pokemon.</p>

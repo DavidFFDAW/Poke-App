@@ -32,7 +32,7 @@ export default function PokeHeader() {
     return (
         <>
             <div className="flex between poke-header">
-                { pathname !== '/' && <div onClick={ handleGoBack }>
+                { pathname !== '/' && <div onClick={ handleGoBack } className="back">
                     <div className="go-back">                        
                         <p><i className="arrow left"></i></p>
                     </div>
@@ -41,7 +41,7 @@ export default function PokeHeader() {
                     <img className="poke-logo" src={ `${config.appUrl}/pokeball.png` }></img>
                     <span>PokeInfo App</span>
                 </div>
-                <div className="last">
+                <div className="last input-div">
                     <input className="text-search" type="text" value={ keyword } onChange={ handleChangeKeyword }/>
                     <button className="btn btn-search" type="button" onClick={ handleSearchPokemon }>Buscar</button>
                 </div>

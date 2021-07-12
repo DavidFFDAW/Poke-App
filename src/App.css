@@ -82,6 +82,7 @@
     padding: 4px 10px;
     border-radius: 30px;
     text-transform: uppercase;
+    text-decoration: none;
     font-size: 15px;
     font-weight: bold;
     cursor: pointer;
@@ -119,4 +120,24 @@
 .footer a {
     text-decoration: none;
     color: #fff;
+}
+
+@media only screen and (max-width: 768px) {
+    .flex{ flex-wrap: wrap; }
+    .flex-start{ flex-wrap: wrap; }
+    .flex.footer{ flex-wrap: nowrap; }
+    .all-margins * { margin: 0; padding: 5px;}
+    .all-margins { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; }
+    .details-card{ width: 80%; margin: auto; margin-bottom: 50px; margin-top: 20px; box-shadow: 0 0 30px rgba(0,0,0,.3);}
+    .details-text{ width: 100%; margin: 0 auto; }
+    .rounded-box{ width: 90%; margin: 20px auto; box-shadow: 0 0 30px rgba(0,0,0,0.3); }
+    .header-home-link{ display: none; }
+    .pokeViewport{ padding-top: 90px; padding-bottom: 90px; }
+    .poke-header .last, .poke-header:first-child { padding: 0; }
+    .flex.between.poke-header { justify-content: flex-end; align-items: center; }
+    .poke-header .input-div { width: 60%; position: absolute; right: 10px; top: 0; padding: 8% 0; }
+    .poke-header input.text-search { width: 30%; }
+    .poke-header .back { position: absolute; top: 0; left: 10px; }
+    .pokemon-card-one { display: block; width: 100%; margin: 0 auto; }
+    .poke-detail-card { padding: 20px 30px; width: 75%; margin: 35px auto; box-shadow: 0 0 30px rgba(0,0,0,0.4); }
 }

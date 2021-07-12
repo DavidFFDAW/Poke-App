@@ -77,7 +77,7 @@ export default function PokemonDetail({ name }) {
     },[ name ]);
     
     return (
-        <div className="flex center">
+        <div className="flex center pokemon-card-one">
             {
                 isLoading
                 ? <PokeBallSpinner/>
