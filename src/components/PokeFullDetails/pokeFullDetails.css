@@ -85,3 +85,21 @@
     content: ":";
     margin-left: 5px;
 }
+.tag-evolution{
+    background-color: #e64d4d;
+    color: #fff;
+}
+.tag-evolution:hover{background-color: #622727; color: #fff; padding: 6px 12px; }
+
+.fixed-width{ width: 100px; }
+.trigger { position: absolute; top: 60px; margin: 0 10px; }
+.pad-30{ padding: 30px 0; }
+
+
+.arrow-right::after {
+  content: " → ";
+  display: inline-block;
+  color: #000;
+  font-size: 20px;
+
+}

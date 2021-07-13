@@ -6,23 +6,36 @@ export const getFirstPokemons = async _ => {
     return pokemons.json();
 }
 
-export const getEvolutionChain = async id => {
-    const evolutionChainEndpoint = `evolution-chain/${id}`;
-    const pokeEvolutionChain = await fetch(`${endpoint}/${evolutionChainEndpoint}`); 
-    return pokeEvolutionChain.json();
+export const getEvolutionChain = async httpUrl => {
+    const evolutions = await fetch(httpUrl); 
+    const pokeEvolutionChain = await evolutions.json();
+    const evolutionsArray = pokeEvolutionChain.chain.evolves_to;
+    const newEvolvesTo = [{evolution_details: [], species: pokeEvolutionChain.chain.species },...evolutionsArray];
+    pokeEvolutionChain.chain.evolves_to = newEvolvesTo;
+/* 
+    pokeEvolutionChain.chain.evolves_to.forEach(async evolution => {
+        const poke = await fetch(`${endpoint}/pokemon/${evolution.species.name}`);
+        const pokemon = await poke.json();
+        return evolution.pokemonData = pokemon;
+    }) */
+    return await pokeEvolutionChain;
 }
 
 export const getPokemonDetails = async pokemonName => {
     const pokemonDetails = await fetch(`${endpoint}/pokemon/${pokemonName}`);
     const details = await pokemonDetails.json();
+
     const areaEncountersFetch = await fetch(`${details.location_area_encounters}`);
     const areaEncounters = await areaEncountersFetch.json();
     
     const speciesInfoFetch = await fetch(`${details.species.url}`);
     const speciesInfo = await speciesInfoFetch.json();
+
+    const pokemonEvolutionChain = await getEvolutionChain(speciesInfo.evolution_chain.url)
     
     details.area_encounters = areaEncounters;
     details.specieInfo = speciesInfo;
+    details.evolutions = pokemonEvolutionChain;
     
     return details;
 };

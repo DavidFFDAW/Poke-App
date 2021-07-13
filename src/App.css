@@ -86,6 +86,7 @@
     font-size: 15px;
     font-weight: bold;
     cursor: pointer;
+    transition: all 0.2s;
 }
 .default-tag{  color: #3a3939; background: #dddcdc; }
 .default-tag:hover { background: #bdbdbd; }
@@ -121,6 +122,7 @@
     text-decoration: none;
     color: #fff;
 }
+.relative { position: relative; }
 
 @media only screen and (max-width: 768px) {
     .flex{ flex-wrap: wrap; }

@@ -5,6 +5,33 @@ import { types } from '../../constants/types.data';
 import { getPokemonDetails } from '../../services/PokeAPI.service';
 import './pokeFullDetails.css';
 
+const Arrow = ({ trigger, level }) => {
+    return (
+        <div className="fixed-width flex center">
+            <span className="trigger">{trigger} { level ? level : '' }</span>
+        </div>
+    );
+}
+
+const EvolutionChain = ({ evolutions }) => {
+
+    return (
+        <>
+        {
+            evolutions.chain.evolves_to.map(({ species, evolution_details }, index) => {
+                
+                return (
+                    <div key={index}>
+                        { evolution_details.length > 0 && evolution_details[0].trigger && <Arrow trigger={evolution_details[0].trigger.name} level={evolution_details[0].min_level}/> }                       
+                        <Link to={`/pokemon/${species.name}`} className="tag tag-evolution">{species.name}</Link>
+                    </div>
+                );
+            })
+        }
+        </>
+    );
+}
+
 const InformationRow = ({ text, data, upper, line, link }) => {
 
     const specialDataTypes = (data) => {
@@ -119,6 +146,14 @@ const ShowLoadedDetails = ({ details }) => {
                             }
                         </div>
                     </div>
+                    <div className="rounded-box">
+                        <h3 className="title box-title"><strong>Evoluciones: </strong></h3>
+                        <div className="flex center pad-30">
+                            <div className="body flex between relative">
+                                <EvolutionChain evolutions={ details.evolutions }/>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>
@@ -132,7 +167,6 @@ export default function PokemonFullDetails({ name }) {
 
     useEffect(() => {
         getPokemonDetails(name).then(details => {
-            console.log(details);
             setDetails(details);
             setLoading(false);
         });
