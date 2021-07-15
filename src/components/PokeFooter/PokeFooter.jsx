@@ -1,6 +1,10 @@
-import { config } from "../../constants/config"
+import { config } from "../../constants/config";
+import { useTranslation } from "react-i18next";
 
 export default function Footer(){
+
+    const { t } = useTranslation();
+
     return (
         <div className="flex center footer">
             <div className="all-margins">
@@ -9,7 +13,7 @@ export default function Footer(){
                 <span>{ config.year }</span> 
                 <a href={config.author.web}>{ config.author.name }</a> 
                 <span>v{config.version}</span>
-                <span>fase: {config.phase}</span>            
+                <span>{ t('footer.phase') }: { config.phase }</span>            
             </div>
         </div>
     );

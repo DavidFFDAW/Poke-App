@@ -1,0 +1,39 @@
+{
+    "translation": {
+        "header": {
+            "button": "Search"
+        },
+        "footer": {
+            "phase": "Phase"
+        },
+        "card": {
+            "showDetails": "Show Details"
+        },
+        "pokemon-detail": {
+            "name": "Name",
+            "type": "Type(s)",
+            "height": "Height"
+        },
+        "pokemon-types": {
+            "fire": "Fire",
+            "water": "Water",
+            "grass": "Grass",
+            "ground": "Ground",
+            "rock": "Rock",
+            "normal": "Normal",
+            "psychic": "Psychic",
+            "poison": "Poison",
+            "ghost": "Ghost",
+            "dragon": "Dragon",
+            "electric": "Electric",
+            "steel": "Steel",
+            "fairy": "Fairy",
+            "fighting": "Fight",
+            "bug": "Bug",
+            "ice": "Ice",
+            "dark": "Dark",
+            "flying": "Flying"
+        }
+        
+    }
+}

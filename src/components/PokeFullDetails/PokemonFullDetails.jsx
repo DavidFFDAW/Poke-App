@@ -3,6 +3,7 @@ import PokeBallSpinner from '../PokeSpinner/PokeBallSpinner';
 import { Link } from 'react-router-dom';
 import { types } from '../../constants/types.data';
 import { getPokemonDetails } from '../../services/PokeAPI.service';
+import { useTranslation } from 'react-i18next';
 import './pokeFullDetails.css';
 
 const Arrow = ({ trigger, level }) => {
@@ -81,8 +82,9 @@ const InformationArray = ({ text, array, type, line }) => {
 
 const ShowLoadedDetails = ({ details }) => {
     
+    const { t } = useTranslation();
     const [ isShiny, setShiny ] = useState(false);
-
+    
     const isProperty = property => property ? 'Yes' : 'No';
 
     const handleSetShiny = _ => {
@@ -141,7 +143,7 @@ const ShowLoadedDetails = ({ details }) => {
                         <div className="body flex-strt flxwrap">
                             {
                                 details.moves.map(move => {
-                                    return <span key={ move.move.name } className="tag default-tag">{ move.move.name }</span>
+                                    return <span key={ move.move.name } data-move={ move.move.name } className="tag default-tag">{ t('moves')[move.move.name.toLowerCase()] || move.move.name }</span>
                                 })
                             }
                         </div>

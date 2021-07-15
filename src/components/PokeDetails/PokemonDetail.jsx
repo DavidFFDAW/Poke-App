@@ -3,11 +3,12 @@ import { types } from '../../constants/types.data';
 import { getPokemonDetails } from '../../services/PokeAPI.service';
 import PokeBallSpinner from '../PokeSpinner/PokeBallSpinner';
 import { useHistory, Link } from 'react-router-dom';
-import abilitiesTranslation from '../../i18n/abilities';
+import { useTranslation } from 'react-i18next';
 import './pokeDetail.css';
 
 const PokemonData = (pokeData) => {
 
+    const { t } = useTranslation();
     const { data } = pokeData;
     const thisTypeColors = types[data.types[0].type.name];
     const history = useHistory();
@@ -53,11 +54,11 @@ const PokemonData = (pokeData) => {
                         <span key={ type.type.name } className="poke-type-tag" style={{
                             background: types[type.type.name].bg,
                             color: types[type.type.name].font,
-                        }}>{ types[type.type.name].trad }</span>   
+                        }}>{ t('pokemon-types')[type.type.name] }</span>   
                     ) }
                 </div>                
                 <div className="flex center down">
-                    <Link type="button" className="btn btn-download" to={`/pokemon/${data.name}` }>Ver Detalles</Link>
+                    <Link type="button" className="btn btn-download" to={`/pokemon/${data.name}` }>{ t('card.showDetails') }</Link>
                 </div>
             </div>
         </div>

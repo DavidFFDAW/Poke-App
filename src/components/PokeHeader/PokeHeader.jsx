@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { config } from '../../constants/config';
+import { useTranslation, i18n } from 'react-i18next';   
 /*import { getFilteredPokemonsByName } from '../../services/PokeAPI.service';*/
 import './pokeHeader.css';
 
 
 export default function PokeHeader() {
 
+    const { t, i18n } = useTranslation();
     const [ keyword, setKeyword ] = useState( localStorage.getItem('lastSearch') || '' );
     const history = useHistory();
     const { pathname } = useLocation();
@@ -43,7 +45,7 @@ export default function PokeHeader() {
                 </div>
                 <div className="last input-div">
                     <input className="text-search" type="text" value={ keyword } onChange={ handleChangeKeyword }/>
-                    <button className="btn btn-search" type="button" onClick={ handleSearchPokemon }>Buscar</button>
+                    <button className="btn btn-search" type="button" onClick={ handleSearchPokemon }>{ t('header.button')}</button>
                 </div>
             </div>
         </>
