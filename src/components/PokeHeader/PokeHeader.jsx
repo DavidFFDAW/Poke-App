@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { config } from '../../constants/config';
-import { useTranslation, i18n } from 'react-i18next';   
+import { useTranslation } from 'react-i18next';   
 /*import { getFilteredPokemonsByName } from '../../services/PokeAPI.service';*/
 import './pokeHeader.css';
 
 
 export default function PokeHeader() {
 
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
     const [ keyword, setKeyword ] = useState( localStorage.getItem('lastSearch') || '' );
     const history = useHistory();
     const { pathname } = useLocation();
@@ -40,7 +40,7 @@ export default function PokeHeader() {
                     </div>
                 </div> }
                 <div className="header-home-link flex between" onClick={ handleSendHome }>
-                    <img className="poke-logo" src={ `${config.appUrl}/pokeball.png` }></img>
+                    <img className="poke-logo" alt="pokeball-logo" src={ `${config.appUrl}/pokeball.png` }></img>
                     <span>PokeInfo App</span>
                 </div>
                 <div className="last input-div">

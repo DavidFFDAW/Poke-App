@@ -5,6 +5,7 @@ import { types } from '../../constants/types.data';
 import { getPokemonDetails } from '../../services/PokeAPI.service';
 import { useTranslation } from 'react-i18next';
 import './pokeFullDetails.css';
+import RoundedBox, { RoundedBoxPad30, SimpleRoundBox } from '../RoundedBox/RoundedBox';
 
 const Arrow = ({ trigger, level }) => {
     return (
@@ -132,30 +133,22 @@ const ShowLoadedDetails = ({ details }) => {
                     </div>
                 </div>
                 <div className="details-text">
-                    <div className="rounded-box first">
-                        <h3 className="title box-title"><strong>Información: </strong></h3>
-                        <div className="body">
-                            <p>{ information.flavor_text }</p>
-                        </div>
-                    </div>
-                    <div className="rounded-box">
-                        <h3 className="title box-title"><strong>Movimientos: </strong></h3>
-                        <div className="body flex-strt flxwrap">
-                            {
-                                details.moves.map(move => {
-                                    return <span key={ move.move.name } data-move={ move.move.name } className="tag default-tag">{ t('moves')[move.move.name.toLowerCase()] || move.move.name }</span>
-                                })
-                            }
-                        </div>
-                    </div>
-                    <div className="rounded-box">
-                        <h3 className="title box-title"><strong>Evoluciones: </strong></h3>
-                        <div className="flex center pad-30">
+
+                    <SimpleRoundBox title="Información:">
+                        <p>{ information.flavor_text }</p>
+                    </SimpleRoundBox>
+                                        
+                    <RoundedBox title="Movimientos:">
+                        {details.moves.map(move => {
+                            return <Link to={ `/pokemon/move/info/${move.move.name}` } key={ move.move.name } className="tag default-tag">{ t('moves')[move.move.name.toLowerCase()] || move.move.name }</Link>
+                        })}
+                    </RoundedBox>
+
+                    <RoundedBoxPad30 title="Evoluciones:">
                             <div className="body flex between relative">
                                 <EvolutionChain evolutions={ details.evolutions }/>
                             </div>
-                        </div>
-                    </div>
+                    </RoundedBoxPad30>                        
                 </div>
             </div>
         </>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { types } from '../../constants/types.data';
 import { getPokemonDetails } from '../../services/PokeAPI.service';
 import PokeBallSpinner from '../PokeSpinner/PokeBallSpinner';
-import { useHistory, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import './pokeDetail.css';
 
@@ -11,7 +11,6 @@ const PokemonData = (pokeData) => {
     const { t } = useTranslation();
     const { data } = pokeData;
     const thisTypeColors = types[data.types[0].type.name];
-    const history = useHistory();
 
     const decorationColor = {
         background: thisTypeColors.bg,
@@ -31,10 +30,6 @@ const PokemonData = (pokeData) => {
         return style;
     }
 
-    const getThisPokemonDetails = (pokename) => {
-        history.push(`/pokemon/${pokename}`);
-    }
-
 
     return(
         <div className="poke-detail-card flex center">
@@ -44,7 +39,7 @@ const PokemonData = (pokeData) => {
                     <h3 className="poke-name" style={ fontStyle(data.name,true) }>{ data.name }</h3>
                 </div>
                 <div className="flex center img-fixed-size">
-                    <img className="poke-pic" src={ data.sprites.front_default }></img>
+                    <img className="poke-pic" src={ data.sprites.front_default } alt={`${ data.name } pokemon sprite`}></img>
                 </div>
                 <div className="flex center">
                     <span className="poke-name no-margin" style={ fontStyle(data.name,false) }>{ data.name }</span>
