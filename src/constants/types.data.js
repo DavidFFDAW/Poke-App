@@ -1,7 +1,7 @@
 export const types = {
     fire: { bg: '#ffac38', font: '#000', trad: 'Fuego' },
     water: { bg: '#4cbefc', font: '#fff', trad: 'Agua' },
-    grass: { bg: '#24a65a', font: '#fff', font: '#fff', trad: 'Planta' },
+    grass: { bg: '#24a65a', font: '#fff', trad: 'Planta' },
     ground: { bg: '#a37a53', font: '#fff', trad: 'Tierra' },
     rock: { bg: '#918477', font: '#fff', trad: 'Roca' },
     normal: { bg: '#c2b497', font: '#fff', trad: 'Normal' },
