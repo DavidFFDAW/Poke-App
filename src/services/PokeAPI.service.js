@@ -72,3 +72,8 @@ export const getFilteredPokemonsByName = async name => {
 
     return filtered;
 }
+
+export const getMoveInfo = async moveName => {
+    const moveInfo = await fetch(`${endpoint}/move/${moveName}`);
+    return await moveInfo.json();    
+}
