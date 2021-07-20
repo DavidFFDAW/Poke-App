@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom';
 import { types } from '../../constants/types.data';
 import { getPokemonDetails } from '../../services/PokeAPI.service';
 import { useTranslation } from 'react-i18next';
-import './pokeFullDetails.css';
+import Translate from '../../hooks/useTranslate';
 import RoundedBox, { RoundedBoxPad30, SimpleRoundBox } from '../RoundedBox/RoundedBox';
 import SmallDataBox, { CenteredButton, FlipBox } from '../SmallDataBox/SmallDataBox';
+import './pokeFullDetails.css';
 
 const Arrow = ({ trigger, level }) => {
     return (
@@ -85,6 +86,7 @@ export const InformationArray = ({ text, array, type, line }) => {
 const ShowLoadedDetails = ({ details }) => {
     
     const { t } = useTranslation();
+    const { translate } = Translate();
     const [ isShiny, setShiny ] = useState(false);
     
     const isProperty = property => property ? 'Yes' : 'No';
@@ -132,7 +134,7 @@ const ShowLoadedDetails = ({ details }) => {
                                         
                     <RoundedBox title="Movimientos:">
                         {details.moves.map(move => {
-                            return <Link to={ `/pokemon/move/info/${move.move.name}` } key={ move.move.name } className="tag default-tag">{ t('moves')[move.move.name.toLowerCase()] || move.move.name }</Link>
+                            return <Link to={ `/pokemon/move/info/${move.move.name}` } key={ move.move.name } className="tag default-tag">{ translate(move.move.name) }</Link>
                         })}
                     </RoundedBox>
 

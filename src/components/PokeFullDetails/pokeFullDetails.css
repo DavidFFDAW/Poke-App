@@ -31,6 +31,10 @@
     height: 190px;
     width: 75%;
 }
+.img-container .detail-img-move {
+  height: 100px;
+  width: 30%;
+}
 .flip-box {
     background-color: transparent;
     width: auto;
