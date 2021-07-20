@@ -6,6 +6,7 @@ import { getPokemonDetails } from '../../services/PokeAPI.service';
 import { useTranslation } from 'react-i18next';
 import './pokeFullDetails.css';
 import RoundedBox, { RoundedBoxPad30, SimpleRoundBox } from '../RoundedBox/RoundedBox';
+import SmallDataBox, { CenteredButton, FlipBox } from '../SmallDataBox/SmallDataBox';
 
 const Arrow = ({ trigger, level }) => {
     return (
@@ -34,7 +35,7 @@ const EvolutionChain = ({ evolutions }) => {
     );
 }
 
-const InformationRow = ({ text, data, upper, line, link }) => {
+export const InformationRow = ({ text, data, upper, line, link }) => {
 
     const specialDataTypes = (data) => {
         if(link){
@@ -54,7 +55,7 @@ const InformationRow = ({ text, data, upper, line, link }) => {
     );
 }
 
-const InformationArray = ({ text, array, type, line }) => {
+export const InformationArray = ({ text, array, type, line }) => {
 
     const Tag = (entry) => {
         if(!type){
@@ -98,40 +99,31 @@ const ShowLoadedDetails = ({ details }) => {
     return (
         <>
             <div className="flex-start between">
-                <div className="details-card flex-not-align center">
-                    <div className="w-100">
-                        <div className="flip-box">
-                            <div className="flip-box-inner">
-                                <div className="flip-box-front img-container">
-                                    <img className="detail-img" src={ isShiny ? details.sprites.front_shiny : details.sprites.front_default } alt={`${ details.name } sprite`} />
-                                </div>
-                                <div className="flip-box-back img-container">
-                                    <img className="detail-img" src={ isShiny ? details.sprites.back_shiny : details.sprites.back_default } alt={`${ details.name } sprite`} />
-                                </div>
-                            </div>
-                        </div>
+                <SmallDataBox>
+                    <FlipBox 
+                        front={ <img className="detail-img" src={ isShiny ? details.sprites.front_shiny : details.sprites.front_default } alt={`${ details.name } sprite`} /> }
+                        back={ <img className="detail-img" src={ isShiny ? details.sprites.back_shiny : details.sprites.back_default } alt={`${ details.name } sprite`} /> }
+                    />
+                    <CenteredButton onclick={ handleSetShiny } text={ isShiny ? 'Ver normal' : 'Ver shiny' }/>
 
-                        <div className="flex center">
-                            <button type="button" className="btn btn-download" onClick={ handleSetShiny }>{ isShiny ? 'Ver normal' : 'Ver Shiny' }</button>
-                        </div>
 
-                        <div className="down">
-                            <InformationRow text="ID" data={details.id} line/>
-                            <InformationRow text="Nombre" data={details.name} upper line/>
-                            <InformationArray text="Tipo(s)" array={details.types} type="type" line/>
-                            <InformationRow text="Altura" data={details.height} line/>
-                            <InformationRow text="Orden" data={details.order} line/>
-                            <InformationRow text="Peso" data={details.weight} line/>
-                            <InformationRow text="Bebe" data={isProperty(details.specieInfo.is_baby)} line/>
-                            <InformationRow text="Mítico" data={isProperty(details.specieInfo.is_mytical)} line/>
-                            <InformationRow text="Legendario" data={isProperty(details.specieInfo.is_legendary)} line/>
-                            <InformationRow text="Forma" data={details.specieInfo.shape.name} line/>
-                            {details.specieInfo.evolves_from_species && <InformationRow text="Evolución previa" data={details.specieInfo.evolves_from_species.name} line link/>}
-                            <InformationArray text="Grupo Huevo" array={details.specieInfo.egg_groups} line/>
-                            <InformationRow text="Exp de combate" data={details.base_experience}/>                            
-                        </div>
+                    <div className="down">
+                        <InformationRow text="ID" data={details.id} line/>
+                        <InformationRow text="Nombre" data={details.name} upper line/>
+                        <InformationArray text="Tipo(s)" array={details.types} type="type" line/>
+                        <InformationRow text="Altura" data={details.height} line/>
+                        <InformationRow text="Orden" data={details.order} line/>
+                        <InformationRow text="Peso" data={details.weight} line/>
+                        <InformationRow text="Bebe" data={isProperty(details.specieInfo.is_baby)} line/>
+                        <InformationRow text="Mítico" data={isProperty(details.specieInfo.is_mytical)} line/>
+                        <InformationRow text="Legendario" data={isProperty(details.specieInfo.is_legendary)} line/>
+                        <InformationRow text="Forma" data={details.specieInfo.shape.name} line/>
+                        {details.specieInfo.evolves_from_species && <InformationRow text="Evolución previa" data={details.specieInfo.evolves_from_species.name} line link/>}
+                        <InformationArray text="Grupo Huevo" array={details.specieInfo.egg_groups} line/>
+                        <InformationRow text="Exp de combate" data={details.base_experience}/>                            
                     </div>
-                </div>
+                </SmallDataBox>
+                
                 <div className="details-text">
 
                     <SimpleRoundBox title="Información:">
