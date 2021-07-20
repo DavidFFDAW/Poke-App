@@ -7,6 +7,7 @@
 .flex.between { justify-content: space-between; }
 .flex-start.between { justify-content: space-between; }
 .vertical-center{ box-sizing: border-box; padding: 25px 0; }
+.vertical-center-50{ box-sizing: border-box; padding: 50px 0; }
 .down{ margin-top: 25px; }
 .flxwrap { flex-wrap: wrap; }
 .w-100{ width: 100%; min-width: 100%; }
