@@ -1,13 +1,13 @@
 import React from 'react';
 
-export function FlipBox({ front, back }){
+export function FlipBox({ front, back, extraCssClass }){
     return (
         <div className="flip-box">
             <div className="flip-box-inner">
-                <div className="flip-box-front img-container">
+                <div className={ `flip-box-front img-container ${ extraCssClass }` }>
                     { front }
                 </div>
-                <div className="flip-box-back img-container">
+                <div className={ `flip-box-back img-container ${ extraCssClass }` }>
                     { back }
                 </div>
             </div>
