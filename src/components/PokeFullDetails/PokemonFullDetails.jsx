@@ -134,7 +134,7 @@ const ShowLoadedDetails = ({ details }) => {
                                         
                     <RoundedBox title="Movimientos:">
                         {details.moves.map(move => {
-                            return <Link to={ `/pokemon/move/info/${move.move.name}` } key={ move.move.name } className="tag default-tag">{ translate(move.move.name) }</Link>
+                            return <Link to={ `/pokemon/move/info/${move.move.name}` } key={ move.move.name } className="tag default-tag">{ translateMove(move.move.name) }</Link>
                         })}
                     </RoundedBox>
 
