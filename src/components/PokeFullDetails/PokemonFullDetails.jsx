@@ -103,8 +103,8 @@ const ShowLoadedDetails = ({ details }) => {
             <div className="flex-start between">
                 <SmallDataBox>
                     <FlipBox 
-                        front={ <img className="detail-img" src={ isShiny ? details.sprites.front_shiny : details.sprites.front_default } alt={`${ details.name } sprite`} /> }
-                        back={ <img className="detail-img" src={ isShiny ? details.sprites.back_shiny : details.sprites.back_default } alt={`${ details.name } sprite`} /> }
+                        front={ <img loading="lazy" className="detail-img" src={ isShiny ? details.sprites.front_shiny : details.sprites.front_default } alt={`${ details.name } sprite`} /> }
+                        back={ <img loading="lazy" className="detail-img" src={ isShiny ? details.sprites.back_shiny : details.sprites.back_default } alt={`${ details.name } sprite`} /> }
                     />
                     <CenteredButton onclick={ handleSetShiny } text={ isShiny ? 'Ver normal' : 'Ver shiny' }/>
 

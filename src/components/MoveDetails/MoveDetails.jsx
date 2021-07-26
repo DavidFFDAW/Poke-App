@@ -18,8 +18,8 @@ const MoveInfo = ({ moveInfo }) => {
             <div className="flex-start between">
                 <SmallDataBox>
                     <FlipBox extraCssClass="vertical-center-50"
-                        front={ <img src={ `${config.appUrl}/mt_disc.png`} className="detail-img-move" alt="MT pokemon disc sprite" /> }
-                        back={ <img src={ `${config.appUrl}/mt_disc.png`} className="detail-img-move" alt="MT pokemon disc sprite" /> }
+                        front={ <img loading="lazy" src={ `${config.appUrl}/mt_disc.png`} className="detail-img-move" alt="MT pokemon disc sprite" /> }
+                        back={ <img loading="lazy" src={ `${config.appUrl}/mt_disc.png`} className="detail-img-move" alt="MT pokemon disc sprite" /> }
                     />
                     <InformationRow text="ID" data={ moveInfo.id } upper line/>
                     <InformationRow text="Nombre" data={ translateMove(moveInfo.name) } upper line/>

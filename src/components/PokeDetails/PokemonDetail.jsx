@@ -39,7 +39,7 @@ const PokemonData = (pokeData) => {
                     <h3 className="poke-name" style={ fontStyle(data.name,true) }>{ data.name }</h3>
                 </div>
                 <div className="flex center img-fixed-size">
-                    <img className="poke-pic" src={ data.sprites.front_default } alt={`${ data.name } pokemon sprite`}></img>
+                    <img loading="lazy" className="poke-pic" src={ data.sprites.front_default } alt={`${ data.name } pokemon sprite`}></img>
                 </div>
                 <div className="flex center">
                     <span className="poke-name no-margin" style={ fontStyle(data.name,false) }>{ data.name }</span>
