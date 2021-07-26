@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import useCustomTranslate from '../hooks/useTranslate';
 import ScrollView from '../components/ScrollView/ScrollView';
@@ -8,6 +8,10 @@ export default function PokeMoveInfoPage() {
 
     const { translateMove } = useCustomTranslate();
     const { move } = useParams();
+    
+    useEffect(() => {
+        document.title = `${move.toUpperCase()} | Move`;
+    },[ move ]);
 
     return (
         <>

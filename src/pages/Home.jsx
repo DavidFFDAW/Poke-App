@@ -5,6 +5,7 @@ import PokeSearchViewport from '../components/ScrollView/PokeSearchViewport';
 export default function HomePage(){
 
     useEffect(() => {
+      document.title = 'PokeInfo - App';
       if(!localStorage.getItem('pokeArray') || localStorage.getItem('pokeArray') === undefined) {
         getAllPokemons().then(pokemons => {
             localStorage.setItem('pokeArray', JSON.stringify(pokemons.results));

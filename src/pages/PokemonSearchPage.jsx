@@ -39,8 +39,11 @@ export default function PokemonSearchPage(){
     const [ pokeSearchList, setPokeSearchList ] = useState([]);
     const { name } = useParams();
 
+    
+    
     useEffect(() => {
         getFilteredPokemonsByName(name).then(pokemons => {
+            document.title = `PokeInfo - App`;
             setPokeSearchList(pokemons);
             setLoading(false);
         });
