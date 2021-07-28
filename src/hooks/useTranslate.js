@@ -10,7 +10,7 @@ export default function useTranslate(){
     });
 
     const translateType = useCallback(toTranslate => {
-        return t('types')[toTranslate.toLowerCase()] || toTranslate;
+        return t('pokemon-types')[toTranslate.toLowerCase()] || toTranslate;
     });
 
     return { translateMove, translateType }
