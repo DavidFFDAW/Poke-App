@@ -5,6 +5,7 @@ import PokeBallSpinner from '../PokeSpinner/PokeBallSpinner';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import './pokeDetail.css';
+import { TypeTag } from '../TypeTag/TypeTag';
 
 const PokemonData = (pokeData) => {
 
@@ -46,11 +47,9 @@ const PokemonData = (pokeData) => {
                 </div>
                 <div className="flex center">
                     { data.types.map(type => 
-                        <span key={ type.type.name } className="poke-type-tag" style={{
-                            background: types[type.type.name].bg,
-                            color: types[type.type.name].font,
-                        }}>{ t('pokemon-types')[type.type.name] }</span>   
-                    ) }
+                        <TypeTag key={type.type.name} type={type.type.name} />  
+                      ) 
+                    }
                 </div>                
                 <div className="flex center down">
                     <Link type="button" className="btn btn-download" to={`/pokemon/${data.name}` }>{ t('card.showDetails') }</Link>
