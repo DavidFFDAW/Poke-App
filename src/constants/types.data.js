@@ -19,8 +19,45 @@ export const types = {
     flying: { bg: '#8bbbc9', font: '#fff', trad: 'Volador' },
 };
 
+export const typesStrenght = {
+    normal: [ '' ],
+    fighting: [ 'normal', 'rock', 'steel', 'ice', 'dark' ],
+    flying: [ 'fighting', 'bug', 'grass' ],
+    poison: [ 'grass', 'fairy' ],
+    ground: [ 'poison', 'rock', 'steel', 'fire', 'electric' ],
+    rock: [ 'flying', 'bug', 'fire', 'ice' ],
+    bug: [ 'grass', 'psychic', 'dark' ],
+    ghost: [ 'ghost', 'psychic' ],
+    steel: [ 'rock', 'ice', 'fairy' ],
+    fire: [ 'bug', 'steel', 'grass', 'ice' ],
+    water: [ 'ground', 'rock', 'fire' ],
+    grass: [  ],
+    electric: [  ],
+    psychic: [  ],
+    ice: [  ],
+    dragon: [  ],
+    fairy: [  ],
+    dark: [  ],
+};
+
 export const typesWeakness = {
-    fire: [],
-    water: [],
+    normal: [ 'fighting' ],
+    fighting: [ 'flying', 'psychic', 'fairy' ],
+    flying: [ 'rock', 'electric', 'ice' ],
+    poison: [ 'ground', 'psychic' ],
+    ground: [ 'water', 'grass', 'ice' ],
+    rock: [ 'fighting', 'ground', 'steel', 'water', 'grass' ],
+    bug: [ 'flying', 'rock', 'fire' ],
+    ghost: [ 'dark', 'ghost' ],
+    steel: [ 'fighting', 'ground', 'fire' ],
+    fire: [ 'ground', 'rock', 'water' ],
+    water: [ 'grass', 'electric' ],
+    grass: [ 'poison', 'bug', 'flying', 'fire', 'ice' ],
+    electric: [ 'ground' ],
+    psychic: [ 'bug', 'ghost', 'dark' ],
+    ice: [ 'fighting', 'rock', 'steel', 'fire' ],
+    dragon: [ 'ice', 'dragon', 'fairy' ],
+    fairy: [ 'poison', 'steel' ],
+    dark: [ 'fighting', 'bug', 'fairy' ],
     // ...
 };
