@@ -7,6 +7,8 @@ import { useTranslation } from 'react-i18next';
 import useCustomTranslate from '../../hooks/useTranslate';
 import RoundedBox, { RoundedBoxPad30, SimpleRoundBox } from '../RoundedBox/RoundedBox';
 import SmallDataBox, { CenteredButton, FlipBox } from '../SmallDataBox/SmallDataBox';
+import { TypeTag } from '../TypeTag/TypeTag';
+import TypeRelations from '../TypeRelations/TypeRelations';
 import './pokeFullDetails.css';
 
 const Arrow = ({ trigger, level }) => {
@@ -64,7 +66,7 @@ export const InformationArray = ({ text, array, type, line }) => {
 
         }
         if(type === 'type') {
-            return <span key={ entry[type].name } className="tag" style={{ background: types[entry[type].name ].bg, color: types[entry[type].name].font }}>{ entry[type].name }</span>
+            return <TypeTag key={ entry[type].name } css="tag" type={ entry[type].name }/>
         }
         return <span key={ entry[type].name } className="tag default-tag">{ entry[type].name }</span>
     }
@@ -131,18 +133,35 @@ const ShowLoadedDetails = ({ details }) => {
                     <SimpleRoundBox title="Información:">
                         <p>{ information.flavor_text }</p>
                     </SimpleRoundBox>
+                     
                                         
+                    <RoundedBoxPad30 title="Evoluciones:">
+                            <div className="body flex between relative">
+                                <EvolutionChain evolutions={ details.evolutions }/>
+                            </div>
+                    </RoundedBoxPad30>
+
+
+                    <RoundedBoxPad30 title="Fortalezas">
+                            <div className="body grid-types">
+                                <TypeRelations types={ details.types } strenghts></TypeRelations>
+                            </div>
+                    </RoundedBoxPad30>   
+
+
+                    <RoundedBoxPad30 title="Debilidades">
+                            <div className="body grid-types">
+                                <TypeRelations types={ details.types } weaknesses></TypeRelations>
+                            </div>
+                    </RoundedBoxPad30>  
+                    
+
                     <RoundedBox title="Movimientos:">
                         {details.moves.map(move => {
                             return <Link to={ `/pokemon/move/info/${move.move.name}` } key={ move.move.name } className="tag default-tag">{ translateMove(move.move.name) }</Link>
                         })}
                     </RoundedBox>
 
-                    <RoundedBoxPad30 title="Evoluciones:">
-                            <div className="body flex between relative">
-                                <EvolutionChain evolutions={ details.evolutions }/>
-                            </div>
-                    </RoundedBoxPad30>                        
                 </div>
             </div>
         </>
