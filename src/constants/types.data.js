@@ -31,13 +31,13 @@ export const typesStrenght = {
     steel: [ 'rock', 'ice', 'fairy' ],
     fire: [ 'bug', 'steel', 'grass', 'ice' ],
     water: [ 'ground', 'rock', 'fire' ],
-    grass: [  ],
-    electric: [  ],
-    psychic: [  ],
-    ice: [  ],
-    dragon: [  ],
-    fairy: [  ],
-    dark: [  ],
+    grass: [ 'water', 'rock', 'ground' ],
+    electric: [ 'flying', 'water' ],
+    psychic: [ 'fighting', 'poison' ],
+    ice: [ 'flying', 'ground', 'grass', 'dragon' ],
+    dragon: [ 'dragon' ],
+    fairy: [ 'fighting', 'dragon', 'dark' ],
+    dark: [ 'ghost', 'psychic' ],
 };
 
 export const typesWeakness = {
