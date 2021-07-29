@@ -34,6 +34,23 @@
             "dark": "Siniestro",
             "flying": "Volador"
         },
+        "poke-egg-group": {
+            "ground": "Campo",
+            "water 1": "Anfibios",
+            "water 2": "Peces",
+            "water 3": "Crustaceos",
+            "humanoid": "Humanoide",
+            "indeterminate": "Amorfo",
+            "fairy": "Hada",
+            "monster": "Montruo",
+            "dragon": "Dragon",
+            "mineral": "Mineral",
+            "flying": "Volador",
+            "bug": "Bicho",
+            "grass": "Planta",
+            "ditto": "Ditto",
+            "no-eggs": "Ninguno"
+        },
         "moves": {
             "tackle": "Placaje",
             "snore": "Ronquido",
