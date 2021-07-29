@@ -60,6 +60,8 @@ export const InformationRow = ({ text, data, upper, line, link }) => {
 
 export const InformationArray = ({ text, array, type, line }) => {
 
+    const { translateEggType } = useCustomTranslate();
+    
     const Tag = (entry) => {
         if(!type){
             return <span key={entry.name} className="tag default-tag">{ translateEggType(entry.name) }</span>;
@@ -88,7 +90,7 @@ export const InformationArray = ({ text, array, type, line }) => {
 const ShowLoadedDetails = ({ details }) => {
     
     const { t } = useTranslation();
-    const { translateMove, translateEggType } = useCustomTranslate();
+    const { translateMove } = useCustomTranslate();
     const [ isShiny, setShiny ] = useState(false);
     
     const isProperty = property => property ? 'Yes' : 'No';
