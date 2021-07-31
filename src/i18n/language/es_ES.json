@@ -32,13 +32,14 @@
             "bug": "Bicho",
             "ice": "Hielo",
             "dark": "Siniestro",
-            "flying": "Volador"
+            "flying": "Volador",
+            "none": "Ninguno"
         },
         "poke-egg-group": {
             "ground": "Campo",
-            "water 1": "Anfibios",
-            "water 2": "Peces",
-            "water 3": "Crustaceos",
+            "water1": "Anfibios",
+            "water2": "Peces",
+            "water3": "Crustaceos",
             "humanoid": "Humanoide",
             "indeterminate": "Amorfo",
             "fairy": "Hada",

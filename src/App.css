@@ -13,9 +13,14 @@
 .w-100{ width: 100%; min-width: 100%; }
 .all-margins * { margin: 0 5px; }
 .grid-types{
-    display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
-    grid-gap: 10px;
+    max-width: 75%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.grid-types .poke-type-tag{
+    margin: 6px;
 }
 .btn{
     padding: 8px 20px;
@@ -75,8 +80,10 @@
     font-size: 15px;
     font-weight: bold;
     margin: 0 5px;
+    cursor: pointer;
 }
 .poke-type-tag.small{
+    cursor: pointer;
     padding: 4px 10px;
     border-radius: 30px;
     text-transform: uppercase;
@@ -149,5 +156,5 @@
     .poke-header .back { position: absolute; top: 0; left: 10px; }
     .pokemon-card-one { display: block; width: 100%; margin: 0 auto; }
     .poke-detail-card { padding: 20px 30px; width: 75%; margin: 35px auto; box-shadow: 0 0 30px rgba(0,0,0,0.4); }
-    .grid-types{ display: flex; justify-content: center; flex-direction: column; flex-wrap: wrap; }
+    .grid-types{ display: grid; grid-template-columns: 50% 50%; width: 100%; max-width: 100%; }
 }

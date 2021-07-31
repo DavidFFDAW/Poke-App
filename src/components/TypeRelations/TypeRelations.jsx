@@ -16,7 +16,7 @@ export default function TypeRelations({ types, weaknesses = null, strenghts = nu
             finalArray = [...finalArray,...array];
         });
 
-        return finalArray;
+        return finalArray.filter(item => item !== '');
     }
 
     const typesRelation = fillArrayWithPokeRelation(flag);
@@ -26,7 +26,7 @@ export default function TypeRelations({ types, weaknesses = null, strenghts = nu
             {
                 typesRelation.map((type, index) => {
                     return (
-                        <TypeTag key={ index } type={ type } />
+                        <TypeTag key={ index } type={ type } className="type" />
                     )
                 })
             }

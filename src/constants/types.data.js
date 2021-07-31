@@ -20,7 +20,7 @@ export const types = {
 };
 
 export const typesStrenght = {
-    normal: [ '' ],
+    normal: [ 'none' ],
     fighting: [ 'normal', 'rock', 'steel', 'ice', 'dark' ],
     flying: [ 'fighting', 'bug', 'grass' ],
     poison: [ 'grass', 'fairy' ],
