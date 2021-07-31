@@ -36,6 +36,8 @@ At the moment several changes are being made to this project but the main featur
 ## Current Work
 To check the current work of this project you can head to the [Issues Panel](https://github.com/DavidFFDAW/Poke-App/issues) on the GitHub repository where you can check the stuff that is being worked on as of that moment or you can add new issues if you discover a bug or want a new feature that you believe it could be great to implement.
 
+Take into account that as of right now there's only one person creating this whole thing and mantaining it so don't be crazy with your suggestions or don't expect them to be solved fast.
+
 <br/>
 
 
