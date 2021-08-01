@@ -8,6 +8,7 @@ import SmallDataBox, { CenteredButton, FlipBox } from '../SmallDataBox/SmallData
 import { TypeTag } from '../TypeTag/TypeTag';
 import TypeRelations from '../TypeRelations/TypeRelations';
 import './pokeFullDetails.css';
+import ShowMoreList from '../ShowMoreList/List';
 
 const Arrow = ({ trigger, level }) => {
     return (
@@ -87,7 +88,7 @@ export const InformationArray = ({ text, array, type, line }) => {
 
 const ShowLoadedDetails = ({ details }) => {
 
-    const { translateMove, getLanguage } = useCustomTranslate();
+    const { getLanguage } = useCustomTranslate();
     const [ isShiny, setShiny ] = useState(false);
     
     const isProperty = property => property ? 'Yes' : 'No';
@@ -156,9 +157,7 @@ const ShowLoadedDetails = ({ details }) => {
                     
 
                     <RoundedBox title="Movimientos:">
-                        {details.moves.map(move => {
-                            return <Link to={ `/pokemon/move/info/${move.move.name}` } key={ move.move.name } className="tag default-tag">{ translateMove(move.move.name) }</Link>
-                        })}
+                        <ShowMoreList cuttingIn={14} urlTo='/pokemon/move/info' list={ details.moves } arrayKey='move' translate={true}/>
                     </RoundedBox>
 
                 </div>
