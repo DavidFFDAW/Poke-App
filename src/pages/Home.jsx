@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
+import Home from '../components/Home/Home';
 import { getAllPokemons } from '../services/PokeAPI.service';
-import PokeSearchViewport from '../components/ScrollView/PokeSearchViewport';
 
 export default function HomePage(){
 
@@ -13,11 +13,8 @@ export default function HomePage(){
         });
       }
     },[]);
-    
+
     return (
-        <>
-            {/* Presentation page */}
-            <PokeSearchViewport/>        
-        </>
+      <Home/>
     );
 }
