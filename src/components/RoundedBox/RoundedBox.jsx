@@ -4,9 +4,7 @@ export default function RoundedBox ({ title, children }){
     return (
         <div className="rounded-box">
             <h3 className="title box-title"><strong>{ title } </strong></h3>
-            <div className="body flex-strt flxwrap">
-                { children }
-            </div>
+                { children }            
         </div>
     );
 }
