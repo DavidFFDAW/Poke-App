@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { config } from '../../constants/config';
 import { getMoveInfo } from '../../services/PokeAPI.service';
 import useCustomTranslate from '../../hooks/useTranslate';
@@ -7,11 +6,13 @@ import { InformationRow } from '../PokeFullDetails/PokemonFullDetails';
 import PokeBallSpinner from '../PokeSpinner/PokeBallSpinner';
 import RoundedBox, { SimpleRoundBox } from '../RoundedBox/RoundedBox';
 import SmallDataBox, { FlipBox } from '../SmallDataBox/SmallDataBox';
+import ShowMoreList from '../ShowMoreList/List';
 
 
 const MoveInfo = ({ moveInfo }) => {
 
-    const { translateMove, translateType } = useCustomTranslate();
+    const { translateMove, translateType, getLanguage } = useCustomTranslate();
+    const infoText = moveInfo.flavor_text_entries.filter(item => item.language.name === getLanguage())[0].flavor_text;
 
     return (
         <>
@@ -46,14 +47,11 @@ const MoveInfo = ({ moveInfo }) => {
 
                 <div className="details-text">
                     <SimpleRoundBox title="Información:">
-                        <p>{ moveInfo.effect_entries[0].effect }</p>
-                        <p>{ moveInfo.effect_entries[0].short_effect }</p>
+                        <p>{ infoText }</p>
                     </SimpleRoundBox>
 
-                    <RoundedBox title="Lo pueden aprender:">
-                        { moveInfo.learned_by_pokemon.map(({name}) => {
-                            return <Link to={`/pokemon/${ name }`} key={name} className="tag default-tag">{ name }</Link>
-                        }) }
+                    <RoundedBox title="Lo pueden aprender:">                        
+                        <ShowMoreList cuttingIn={14} urlTo='/pokemon' list={ moveInfo.learned_by_pokemon } arrayKey='name'/>
                     </RoundedBox>
                 </div>
             </div>
