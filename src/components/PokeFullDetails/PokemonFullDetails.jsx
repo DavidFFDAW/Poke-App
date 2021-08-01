@@ -87,7 +87,7 @@ export const InformationArray = ({ text, array, type, line }) => {
 
 const ShowLoadedDetails = ({ details }) => {
 
-    const { translateMove } = useCustomTranslate();
+    const { translateMove, getLanguage } = useCustomTranslate();
     const [ isShiny, setShiny ] = useState(false);
     
     const isProperty = property => property ? 'Yes' : 'No';
@@ -96,7 +96,7 @@ const ShowLoadedDetails = ({ details }) => {
         setShiny(!isShiny);
     }
 
-    const information = details.specieInfo.flavor_text_entries.filter(entry => entry.language.name === 'es')[0] || { flavor_text: '' };
+    const information = details.specieInfo.flavor_text_entries.filter(entry => entry.language.name === getLanguage())[0] || { flavor_text: '' };
     
     
     return (
