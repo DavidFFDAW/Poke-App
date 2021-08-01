@@ -26,7 +26,7 @@ export default function ShowMoreList({ cuttingIn, list, urlTo, arrayKey, transla
             <div className="body flex-strt flxwrap">
                 {
                     arrayList.map((item, index) => {
-                        return <Link to={ `${ urlTo }/${ item[arrayKey].name }` } key={ index } className="tag default-tag">{ translate ? translateMove(item[arrayKey].name) : item[arrayKey].name }</Link>
+                        return <Link to={ `${ urlTo }/${ item[arrayKey].name || item[arrayKey] }` } key={ index } className="tag default-tag">{ translate ? translateMove(item[arrayKey].name) : item[arrayKey].name || item[arrayKey] }</Link>
                     })
                 }
             </div>  
