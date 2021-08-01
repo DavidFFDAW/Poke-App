@@ -7,14 +7,14 @@ export default function useTranslate(){
 
     const translateMove = useCallback(toTranslate => {        
         return t('moves')[toTranslate.toLowerCase()] || toTranslate;
-    });
+    },[ t ]);
 
     const translateType = useCallback(toTranslate => {
         return t('pokemon-types')[toTranslate.toLowerCase()] || toTranslate;
-    });
+    },[ t ]);
     const translateEggType = useCallback(toTranslate => {
         return t('poke-egg-group')[toTranslate.toLowerCase()] || toTranslate;
-    });
+    },[ t ]);
 
     return { translateMove, translateType, translateEggType }
 }
