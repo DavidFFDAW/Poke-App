@@ -20,11 +20,12 @@ export default function TypeRelations({ types, weaknesses = null, strenghts = nu
     }
 
     const typesRelation = fillArrayWithPokeRelation(flag);
+    const relation = [...new Set(typesRelation)];
 
     return (
         <>
             {
-                typesRelation.map((type, index) => {
+                relation.map((type, index) => {
                     return (
                         <TypeTag key={ index } type={ type } className="type" />
                     )
