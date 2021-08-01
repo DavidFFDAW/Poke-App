@@ -18,7 +18,7 @@ export function FlipBox({ front, back, extraCssClass }){
 export function CenteredButton ({ onclick, text }) {
     return (
         <div className="flex center">
-            <button type="button" className="btn btn-download" onClick={ onclick }>{ text }</button>
+            <button type="button" className="btn btn-download rd" onClick={ onclick }>{ text }</button>
         </div>
     );
 

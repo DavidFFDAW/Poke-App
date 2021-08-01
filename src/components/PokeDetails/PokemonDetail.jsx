@@ -52,7 +52,7 @@ const PokemonData = (pokeData) => {
                     }
                 </div>                
                 <div className="flex center down">
-                    <Link type="button" className="btn btn-download" to={`/pokemon/${data.name}` }>{ t('card.showDetails') }</Link>
+                    <Link type="button" className="btn btn-download rd" to={`/pokemon/${data.name}` }>{ t('card.showDetails') }</Link>
                 </div>
             </div>
         </div>

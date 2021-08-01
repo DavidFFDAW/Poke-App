@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PokeBallSpinner from '../PokeSpinner/PokeBallSpinner';
 import { Link } from 'react-router-dom';
-import { types } from '../../constants/types.data';
 import { getPokemonDetails } from '../../services/PokeAPI.service';
-import { useTranslation } from 'react-i18next';
 import useCustomTranslate from '../../hooks/useTranslate';
 import RoundedBox, { RoundedBoxPad30, SimpleRoundBox } from '../RoundedBox/RoundedBox';
 import SmallDataBox, { CenteredButton, FlipBox } from '../SmallDataBox/SmallDataBox';
@@ -88,8 +86,7 @@ export const InformationArray = ({ text, array, type, line }) => {
 }
 
 const ShowLoadedDetails = ({ details }) => {
-    
-    const { t } = useTranslation();
+
     const { translateMove } = useCustomTranslate();
     const [ isShiny, setShiny ] = useState(false);
     

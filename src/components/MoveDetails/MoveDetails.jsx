@@ -5,7 +5,7 @@ import { getMoveInfo } from '../../services/PokeAPI.service';
 import useCustomTranslate from '../../hooks/useTranslate';
 import { InformationRow } from '../PokeFullDetails/PokemonFullDetails';
 import PokeBallSpinner from '../PokeSpinner/PokeBallSpinner';
-import RoundedBox, { RoundedBoxPad30, SimpleRoundBox } from '../RoundedBox/RoundedBox';
+import RoundedBox, { SimpleRoundBox } from '../RoundedBox/RoundedBox';
 import SmallDataBox, { FlipBox } from '../SmallDataBox/SmallDataBox';
 
 
