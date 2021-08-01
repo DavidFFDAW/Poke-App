@@ -22,6 +22,37 @@
 .grid-types .poke-type-tag{
     margin: 6px;
 }
+.center-fix{
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,150%);
+    min-width: 80%;
+    min-height: 25%;
+}
+.zindex{ z-index: 99; width: 50%; }
+.bg-red{
+    position: absolute;
+    background-color: #de8181;
+    min-width: 100%;
+    min-height: 250px;
+    z-index: 0;
+    transform: rotate(-3deg);
+}
+.general-input {  
+    width: 100%;
+    min-height: 20px;
+    font-weight: bold;
+    color: #3a3939;
+    outline: none;
+    padding: 15px 5px;
+    font-size: 14px;
+    margin: 0 2px;
+    border: none;
+    border-radius: 20px;
+    transition: all 0.2s;
+}
+input.inpt-pad{ box-sizing: border-box; padding: 20px; }
 .btn{
     padding: 8px 20px;
     text-decoration: none;
@@ -35,11 +66,16 @@
     transition: all 0.2s;
     cursor: pointer;
 } 
+.btn-group { margin: 10px 0; }
+.btn-group .btn { border-radius: 0; }
+.btn-group .btn:first-child { border-radius: 30px 0 0 30px; }
+.btn-group .btn:last-child { border-radius: 0 30px 30px 0; }
+
 .btn.btn-download {
-    border-radius: 30px;
     background-color: #e64d4d;
     color: #fff;
 }
+.btn.btn-download.rd{ border-radius: 30px; }
 .btn.btn-download:hover { background-color: #722525; }
 
 .error{
@@ -157,4 +193,5 @@
     .pokemon-card-one { display: block; width: 100%; margin: 0 auto; }
     .poke-detail-card { padding: 20px 30px; width: 75%; margin: 35px auto; box-shadow: 0 0 30px rgba(0,0,0,0.4); }
     .grid-types{ display: grid; grid-template-columns: 50% 50%; width: 100%; max-width: 100%; }
+    .center-fix {transform: translate(-50%,40%); }
 }
