@@ -5,6 +5,8 @@ export default function useTranslate(){
 
     const { t, i18n } = useTranslation();
 
+    const replaceSpacesWithHyphen = string => string.replace(/\s/g, '-');
+
     const translateMove = useCallback(toTranslate => {        
         return t('moves')[toTranslate.toLowerCase()] || toTranslate;
     },[ t ]);
@@ -21,7 +23,12 @@ export default function useTranslate(){
 
     const getMoveFromTranslation = useCallback(introducedMove => {
         const moves = t('moves');
-        return Object.keys(moves).find(move => moves[move].toLowerCase() === introducedMove.toLowerCase()) || null;
+        const keys = Object.keys(moves);
+        
+        if (keys.includes(introducedMove.toLowerCase())) {
+            return replaceSpacesWithHyphen(introducedMove.toLowerCase());
+        }
+        return keys.find(move => moves[move].toLowerCase() === introducedMove.toLowerCase()) || null;
     },[ t ]);
 
     return { translateMove, translateType, translateEggType, getLanguage, getMoveFromTranslation }
