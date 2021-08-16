@@ -114,6 +114,7 @@ const ShowLoadedDetails = ({ details }) => {
                     <div className="down">
                         <InformationRow text="ID" data={details.id} line/>
                         <InformationRow text="Nombre" data={details.name} upper line/>
+                        <InformationRow text="Generación" data={details.specieInfo.generation.name} upper line/>
                         <InformationArray text="Tipo(s)" array={details.types} type="type" line/>
                         <InformationRow text="Altura" data={details.height} line/>
                         <InformationRow text="Orden" data={details.order} line/>
