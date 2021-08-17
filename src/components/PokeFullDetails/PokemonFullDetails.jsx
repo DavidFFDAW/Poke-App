@@ -23,12 +23,12 @@ const EvolutionChain = ({ evolutions }) => {
     return (
         <>
         {
-            evolutions.chain.evolves_to.map(({ species, evolution_details }, index) => {
+            evolutions.map((element, index) => {
                 
                 return (
                     <div key={index}>
-                        { evolution_details.length > 0 && evolution_details[0].trigger && <Arrow trigger={evolution_details[0].trigger.name} level={evolution_details[0].min_level}/> }                       
-                        <Link to={`/pokemon/${species.name}`} className="tag tag-evolution">{species.name}</Link>
+                        { <Arrow trigger={element.trigger_name} level={element.min_level}/> }                       
+                        <Link to={`/pokemon/${element.name}`} className="tag tag-evolution">{element.name}</Link>
                     </div>
                 );
             })

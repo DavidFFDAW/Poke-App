@@ -10,14 +10,28 @@ const addToObject = (object,key,element) => {
 }
 
 const getEvolutions = async () => {
-    const finalArray = {};
+    let finalArray = [];
+    let evoData = null;
 
     const response = await(await fetch(url)).json();
-    console.log(response.chain.evolves_to);
-    addToObject(finalArray,'first',response.chain.species.name);
-    console.log(finalArray);
+    console.log(response.chain);
+    evoData = response.chain;
+    
+    do{
+        let evDetail = evoData.evolution_details[0];
 
+        finalArray.push({
+            name: evoData.species.name,
+            min_level: !evDetail ? 1 : evDetail.min_level,
+            trigger_name: !evDetail ? null : evDetail.trigger_name,
+            item: !evDetail ? null : evDetail.item,
+        });
+        evoData = evoData.evolves_to[0];
+
+    } while (!!evoData && evoData.hasOwnProperty('evolves_to'));
+
+    return finalArray;
 }
 
 
-getEvolutions();
+getEvolutions().then(console.log);

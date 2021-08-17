@@ -9,16 +9,23 @@ export const getFirstPokemons = async _ => {
 export const getEvolutionChain = async httpUrl => {
     const evolutions = await fetch(httpUrl); 
     const pokeEvolutionChain = await evolutions.json();
-    const evolutionsArray = pokeEvolutionChain.chain.evolves_to;
-    const newEvolvesTo = [{evolution_details: [], species: pokeEvolutionChain.chain.species },...evolutionsArray];
-    pokeEvolutionChain.chain.evolves_to = newEvolvesTo;
-/* 
-    pokeEvolutionChain.chain.evolves_to.forEach(async evolution => {
-        const poke = await fetch(`${endpoint}/pokemon/${evolution.species.name}`);
-        const pokemon = await poke.json();
-        return evolution.pokemonData = pokemon;
-    }) */
-    return await pokeEvolutionChain;
+    let evoData = pokeEvolutionChain.chain;
+    const finalArray = [];
+    
+    do{
+        let evDetail = evoData.evolution_details[0];
+
+        finalArray.push({
+            name: evoData.species.name,
+            min_level: !evDetail ? 1 : evDetail.min_level,
+            trigger_name: !evDetail ? null : evDetail.trigger.name,
+            item: !evDetail ? null : evDetail.item,
+        });
+        evoData = evoData.evolves_to[0];
+
+    } while (!!evoData && evoData.hasOwnProperty('evolves_to'));
+
+    return finalArray;
 }
 
 export const getPokemonDetails = async pokemonName => {
