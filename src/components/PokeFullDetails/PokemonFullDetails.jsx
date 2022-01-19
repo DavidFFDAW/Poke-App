@@ -162,7 +162,7 @@ const ShowLoadedDetails = ({ details }) => {
                     </RoundedBox>
                     
                     <RoundedBox title="Pokemon animado Generacion V:">
-                        <img src={ details.sprites.versions.generation-v.black-white.animated.front_default || details.sprites.others.front_default || details.sprite.official-artwork.front_default } />
+                        <img src={ details.sprites.versions.['generation-v']['black-white'].animated.front_default || details.sprites.others.front_default || details.sprite.official-artwork.front_default } />
                     </RoundedBox>
 
                 </div>
