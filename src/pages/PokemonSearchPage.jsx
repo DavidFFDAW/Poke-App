@@ -8,7 +8,7 @@ import PokemonDetail from '../components/PokeDetails/PokemonDetail';
 
 const PokemonSearchList = ({ list }) => {
 
-    if(!list.length > 0 || !list){
+    if(list.length < 0 || !list){
         return (
             <div className="flex center">
                 <div>
