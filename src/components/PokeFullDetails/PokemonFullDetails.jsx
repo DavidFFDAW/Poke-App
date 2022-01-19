@@ -162,7 +162,7 @@ const ShowLoadedDetails = ({ details }) => {
                     </RoundedBox>
                     
                     <RoundedBox title="Artwork:">
-                        <img src={ details.sprites.versions.['generation-v']['black-white'].animated.front_default || details.sprite['official-artwork'].front_default } />
+                        <img src={ details.sprites.versions.['generation-v']['black-white'].animated.front_default || details.sprite.other['official-artwork'].front_default } />
                     </RoundedBox>
 
                 </div>
