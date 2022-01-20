@@ -37,7 +37,7 @@
     min-width: 100%;
     min-height: 250px;
     z-index: 0;
-    transform: rotate(-3deg);
+    transform: rotate(-4deg);
 }
 .general-input {  
     width: 100%;
@@ -66,7 +66,7 @@ input.inpt-pad{ box-sizing: border-box; padding: 20px; }
     transition: all 0.2s;
     cursor: pointer;
 } 
-.btn-group { margin: 10px 0; }
+.btn-group { margin: 10px 0; display: flex; justify-content: center; }
 .btn-group .btn { border-radius: 0; }
 .btn-group .btn:first-child { border-radius: 30px 0 0 30px; }
 .btn-group .btn:last-child { border-radius: 0 30px 30px 0; }
@@ -174,6 +174,18 @@ input.inpt-pad{ box-sizing: border-box; padding: 20px; }
 }
 .relative { position: relative; }
 
+.card {
+    padding: 6px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(27, 27, 27, 0.164);
+    margin: 25px 15px;
+}
+.card:hover {
+    box-shadow: 0 0 30px rgba(27, 27, 27, 0.164);
+    transition: all .2s;
+}
+
+
 @media only screen and (max-width: 768px) {
     .flex{ flex-wrap: wrap; }
     .flex-start{ flex-wrap: wrap; }
@@ -194,4 +206,7 @@ input.inpt-pad{ box-sizing: border-box; padding: 20px; }
     .poke-detail-card { padding: 20px 30px; width: 75%; margin: 35px auto; box-shadow: 0 0 30px rgba(0,0,0,0.4); }
     .grid-types{ display: grid; grid-template-columns: 50% 50%; width: 100%; max-width: 100%; }
     .center-fix {transform: translate(-50%,40%); }
+    .btn-group { flex-direction: column; }
+    .btn-group .btn { border-radius: 0 !important; margin: 2px 0; }
+    .bg-red { height: 350px; }
 }

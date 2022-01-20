@@ -9,7 +9,11 @@ import PokemonSearchPage from './pages/PokemonSearchPage';
 import PokeMoveInfoPage from './pages/PokeMoveInfoPage';
 import './App.css';
 
-function App() {  
+function App() {
+
+  if (!document.body.classList.contains('dark')) {
+    document.body.classList.add('dark');
+  }
 
   return (
     <Router>

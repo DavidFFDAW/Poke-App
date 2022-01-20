@@ -90,6 +90,9 @@ const ShowLoadedDetails = ({ details }) => {
 
     const { getLanguage } = useCustomTranslate();
     const [ isShiny, setShiny ] = useState(false);
+    const maleSprite =  details.sprites.other.home.front_default || details.sprites.front_default;
+    const femaleSprite = details.sprites.other.home.front_female || details.sprites.front_female;
+    const finalFemaleSprite = femaleSprite || maleSprite;
     
     const isProperty = property => property ? 'Yes' : 'No';
 
@@ -127,6 +130,10 @@ const ShowLoadedDetails = ({ details }) => {
                         <InformationArray text="Grupo Huevo" array={details.specieInfo.egg_groups} line/>
                         <InformationRow text="Exp de combate" data={details.base_experience}/>                            
                     </div>
+                    <div className='flex center'>
+                        <img className="animated-artwork" alt='Animated pokemon sprite or official artwork' src={ details.sprites.versions['generation-v']['black-white'].animated.front_default || details.sprites.other['official-artwork'].front_default } />
+                        { details.sprites.versions['generation-v']['black-white'].animated.back_default && <img className="animated-artwork" alt='Animated pokemon sprite or official artwork' src={ details.sprites.versions['generation-v']['black-white'].animated.back_default} /> }
+                    </div>
                 </SmallDataBox>
                 
                 <div className="details-text">
@@ -160,10 +167,21 @@ const ShowLoadedDetails = ({ details }) => {
                     <RoundedBox title="Movimientos:">
                         <ShowMoreList cuttingIn={14} urlTo='/pokemon/move/info' list={ details.moves } arrayKey='move' translate={true}/>
                     </RoundedBox>
-                    
-                    <RoundedBox title="Artwork:">
-                        <img src={ details.sprites.versions.['generation-v']['black-white'].animated.front_default || details.sprite.other['official-artwork'].front_default } />
+
+                    <RoundedBox title="Género:">
+                        <div className='flex center'>
+                            <div className='card'>
+                                <img className="gender" src={ maleSprite } alt="Male pokemon" />
+                                <p style={{ textAlign: 'center' }}>Masculino</p>
+                            </div>
+                            <div className='card'>
+                                <img className='gender' src={ finalFemaleSprite } alt="Female pokemon" />
+                                <p style={{ textAlign: 'center' }}>Femenino</p>
+                            </div>
+                        </div>
                     </RoundedBox>
+                    
+                    
 
                 </div>
             </div>
@@ -171,7 +189,7 @@ const ShowLoadedDetails = ({ details }) => {
     );
 }
 
-export default function PokemonFullDetails({ name }) {
+export default function PokemonFullDetails({ name, changeName }) {
 
     const [ details, setDetails ] = useState({});
     const [ loading, setLoading ] = useState(true);
@@ -179,9 +197,10 @@ export default function PokemonFullDetails({ name }) {
     useEffect(() => {
         getPokemonDetails(name).then(details => {
             setDetails(details);
+            changeName(details.name);
             setLoading(false);
         });
-    }, [ name ]);
+    }, [ name, changeName ]);
 
     return (
         <>

@@ -16,7 +16,9 @@ export default function Home (){
 
     const handleSearchByFilter = () => {
       if (search !== ''){
-        history.push(`pokemon/search/${ search.toLowerCase() }`);
+        localStorage.setItem('lastSearch', search);
+        const route = Number.isInteger( +search ) ? `/pokemon/${ search }` : `/pokemon/search/${ search.toLowerCase() }`;
+        history.push(route);
       }
     }
 
@@ -38,9 +40,9 @@ export default function Home (){
             <div>
                 <input type="text" className="general-input inpt-pad" value={ search } onChange={ handleChangeSearch } />
                 <div className="btn-group">
-                {/* <button className="btn btn-download" type="button">Tipo</button> */}
+                <button className="btn btn-download" type="button">¿____?</button>
                 <button className="btn btn-download" type="button" onClick={ handleSearchByFilter }>Pokemon</button>
-                {/*<button className="btn btn-download" type="button">Habilidad</button> */}
+                <button className="btn btn-download" type="button">¿____?</button>
                 <button className="btn btn-download" type="button" onClick={ handleSearchMove }>Movimiento</button>
                 </div>
             </div>

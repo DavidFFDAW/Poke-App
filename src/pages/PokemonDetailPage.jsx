@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PokemonFullDetails from '../components/PokeFullDetails/PokemonFullDetails';
 import ScrollView from '../components/ScrollView/ScrollView';
 import { useParams } from 'react-router-dom';
@@ -6,16 +6,17 @@ import { useParams } from 'react-router-dom';
 export default function PokeDetailPage(){
 
     const { name } = useParams();
+    const [ pokeName, setPokeName ] = useState(name);
 
     useEffect(() => {
-        document.title = `${name.toUpperCase()} | Pkm`;
-    } , [name]);
+        document.title = `${pokeName.toUpperCase()} | Pkm`;
+    } , [pokeName]);
 
     return (
         <>
-            <div className="flex center details-title-name bg-top">{ name }</div>
+            <div className="flex center details-title-name bg-top" translate='false'>{ pokeName }</div>
             <ScrollView>
-                <PokemonFullDetails name={ name }/>
+                <PokemonFullDetails name={ name } changeName={ setPokeName } />
             </ScrollView>
         </>
     );
