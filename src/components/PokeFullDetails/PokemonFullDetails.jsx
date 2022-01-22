@@ -9,6 +9,8 @@ import { TypeTag } from '../TypeTag/TypeTag';
 import TypeRelations from '../TypeRelations/TypeRelations';
 import './pokeFullDetails.css';
 import ShowMoreList from '../ShowMoreList/List';
+import { parseChartStatistics, getTypeColor } from '../../Utils/GeneralUtils';
+import { PokeStatsChart } from '../PokeStatsChart/Radar';
 
 const Arrow = ({ trigger, level }) => {
     return (
@@ -93,7 +95,9 @@ const ShowLoadedDetails = ({ details }) => {
     const maleSprite =  details.sprites.other.home.front_default || details.sprites.front_default;
     const femaleSprite = details.sprites.other.home.front_female || details.sprites.front_female;
     const finalFemaleSprite = femaleSprite || maleSprite;
-    
+    const pokemonStats = parseChartStatistics(details.stats,details.name, getTypeColor(details.types[0].type.name));
+    // console.log(details.stats);
+
     const isProperty = property => property ? 'Yes' : 'No';
 
     const handleSetShiny = _ => {
@@ -165,7 +169,7 @@ const ShowLoadedDetails = ({ details }) => {
                     
 
                     <RoundedBox title="Movimientos:">
-                        <ShowMoreList cuttingIn={14} urlTo='/pokemon/move/info' list={ details.moves } arrayKey='move' translate={true}/>
+                        <ShowMoreList cuttingIn={ details.moves.length / 2 } urlTo='/pokemon/move/info' list={ details.moves } arrayKey='move' translate={true}/>
                     </RoundedBox>
 
                     <RoundedBox title="Género:">
@@ -181,6 +185,11 @@ const ShowLoadedDetails = ({ details }) => {
                         </div>
                     </RoundedBox>
                     
+                    <RoundedBox title="Estadisticas base:">
+                        <div className='flex center base-stats'>
+                            <PokeStatsChart stats={ pokemonStats }/>
+                        </div>
+                    </RoundedBox>
                     
 
                 </div>

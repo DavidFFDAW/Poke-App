@@ -8,10 +8,16 @@ import './pokeHeader.css';
 
 export default function PokeHeader() {
 
+    
     const { t } = useTranslation();
     const [ keyword, setKeyword ] = useState( localStorage.getItem('lastSearch') || '' );
     const history = useHistory();
     const { pathname } = useLocation();
+    
+        window.addEventListener('storage',e => {
+            console.log('has changed');
+            setKeyword(localStorage.getItem('lastSearch'));
+        });
 
     const handleChangeKeyword = (ev) => {        
         localStorage.setItem( 'lastSearch', ev.target.value );

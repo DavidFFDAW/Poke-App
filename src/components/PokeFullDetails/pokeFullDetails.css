@@ -117,3 +117,9 @@
   font-size: 20px;
 
 }
+
+.base-stats {
+  width: 100%;
+  height: 40vh;
+  padding: 0;
+}
