@@ -7,8 +7,9 @@ import customTranslation from '../../hooks/useTranslate'
 export default function Home (){
 
     const history = useHistory();
+    const lastSearch = localStorage.getItem('lastSearch');
     const { getMoveFromTranslation } = customTranslation();
-    const [ search, setSearch ] = useState('');
+    const [ search, setSearch ] = useState(lastSearch.charAt(0).toUpperCase() + lastSearch.toLowerCase().slice(1) || '');
 
     const handleChangeSearch = (ev) => {
       setSearch(ev.target.value);

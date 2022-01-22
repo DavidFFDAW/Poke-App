@@ -9,6 +9,7 @@ export default function PokeDetailPage(){
     const [ pokeName, setPokeName ] = useState(name);
 
     useEffect(() => {
+        localStorage.setItem('lastSearch',pokeName);
         document.title = `${pokeName.toUpperCase()} | Pkm`;
     } , [pokeName]);
 
