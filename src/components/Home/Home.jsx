@@ -3,13 +3,14 @@ import { useHistory } from 'react-router-dom';
 import ScrollView from '../ScrollView/ScrollView';
 import { config } from '../../constants/config';
 import customTranslation from '../../hooks/useTranslate'
+import { capitalizeName } from '../../Utils/GeneralUtils';
 
 export default function Home (){
 
     const history = useHistory();
-    const lastSearch = localStorage.getItem('lastSearch');
+    const lastSearch = localStorage.getItem('lastSearch') || 'pikachu';
     const { getMoveFromTranslation } = customTranslation();
-    const [ search, setSearch ] = useState(lastSearch.charAt(0).toUpperCase() + lastSearch.toLowerCase().slice(1) || '');
+    const [ search, setSearch ] = useState(capitalizeName(lastSearch));
 
     const handleChangeSearch = (ev) => {
       setSearch(ev.target.value);

@@ -1,7 +1,7 @@
 import { types } from "../constants/types.data";
 
 export const capitalizeName = (name) => {
-    return name.charAt(0).toUpperCase() + name.slice(1).toLoweCase();
+    return name.charAt(0).toUpperCase() + name.toLowerCase().slice(1);
 }
 
 export const getTypeColor = (type) => {
