@@ -60,7 +60,7 @@ export default function PokeHeader() {
                 </div> }
                 <div className="header-home-link flex between" onClick={ handleSendHome }>
                     <img className="poke-logo" alt="pokeball-logo" src={ `${config.appUrl }/pokeball.png` }></img>
-                    <span>PokeInfo App</span>
+                    <span translate='no'>PokeInfo App</span>
                 </div>
                 <div className="last input-div">
                     <input className="text-search" type="text" value={ keyword } onKeyDown={ handleEnterToSearch } onChange={ handleChangeKeyword }/>

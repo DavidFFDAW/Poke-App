@@ -15,7 +15,7 @@ export default function PokeDetailPage(){
 
     return (
         <>
-            <div className="flex center details-title-name bg-top" translate='false'>{ pokeName }</div>
+            <div className="flex center details-title-name bg-top" translate='no'>{ pokeName }</div>
             <ScrollView>
                 <PokemonFullDetails name={ name } changeName={ setPokeName } />
             </ScrollView>

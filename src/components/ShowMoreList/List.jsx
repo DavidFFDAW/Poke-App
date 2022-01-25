@@ -11,8 +11,12 @@ export default function ShowMoreList({ cuttingIn, list, urlTo, arrayKey, transla
     
     useEffect(() => {
         setArrayList(list.slice(0, cuttingIn));
-    },[ cuttingIn, list ]);
+    },[ list, cuttingIn ]);
 
+    // const handleChange = e => {
+    //     const searched = arrayList.filter(it => console.log(it)); /*it.name.includes(e.target.value)*/
+    //     console.log(searched);
+    // }
 
     const handleShowMore = () => {
         if (areTheSameArray(arrayList, list)){
@@ -23,6 +27,7 @@ export default function ShowMoreList({ cuttingIn, list, urlTo, arrayKey, transla
 
     return (
         <>
+            {/* <div><input type={'text'} onChange={ handleChange }/></div> */}
             <div className="body flex-strt flxwrap">
                 {
                     arrayList.map((item, index) => {

@@ -3,7 +3,7 @@ import PokeBallSpinner from '../PokeSpinner/PokeBallSpinner';
 import { Link } from 'react-router-dom';
 import { getPokemonDetails } from '../../services/PokeAPI.service';
 import useCustomTranslate from '../../hooks/useTranslate';
-import RoundedBox, { RoundedBoxPad30, SimpleRoundBox } from '../RoundedBox/RoundedBox';
+import RoundedBox, { RoundedBoxPad30, RoundedBoxWithInput, SimpleRoundBox } from '../RoundedBox/RoundedBox';
 import SmallDataBox, { CenteredButton, FlipBox } from '../SmallDataBox/SmallDataBox';
 import { TypeTag } from '../TypeTag/TypeTag';
 import TypeRelations from '../TypeRelations/TypeRelations';
@@ -120,7 +120,7 @@ const ShowLoadedDetails = ({ details }) => {
 
                     <div className="down">
                         <InformationRow text="ID" data={details.id} line/>
-                        <InformationRow text="Nombre" data={details.name} upper line/>
+                        <InformationRow text="Nombre" data={details.name} upper line translate="no"/>
                         <InformationRow text="Generación" data={details.specieInfo.generation.name} upper line/>
                         <InformationArray text="Tipo(s)" array={details.types} type="type" line/>
                         <InformationRow text="Altura" data={details.height} line/>
@@ -189,8 +189,7 @@ const ShowLoadedDetails = ({ details }) => {
                         <div className='flex center base-stats'>
                             <PokeStatsChart stats={ pokemonStats }/>
                         </div>
-                    </RoundedBox>
-                    
+                    </RoundedBox>                    
 
                 </div>
             </div>
