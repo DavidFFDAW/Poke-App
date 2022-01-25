@@ -92,11 +92,15 @@ const ShowLoadedDetails = ({ details }) => {
 
     const { getLanguage } = useCustomTranslate();
     const [ isShiny, setShiny ] = useState(false);
-    const maleSprite =  details.sprites.other.home.front_default || details.sprites.front_default;
-    const femaleSprite = details.sprites.other.home.front_female || details.sprites.front_female;
+
+    const maleShiny = details.sprites.other.home.front_shiny || details.sprites.front_shiny;
+    const femaleShiny = details.sprites.other.home.front_shiny_female || details.sprites.front_shiny_female;
+    const maleSprite =  isShiny ? maleShiny : details.sprites.other.home.front_default || details.sprites.front_default;
+    const femaleSprite = isShiny ? femaleShiny : details.sprites.other.home.front_female || details.sprites.front_female;
     const finalFemaleSprite = femaleSprite || maleSprite;
+    
     const pokemonStats = parseChartStatistics(details.stats,details.name, getTypeColor(details.types[0].type.name));
-    // console.log(details.stats);
+    // console.log(details.abilities);
 
     const isProperty = property => property ? 'Yes' : 'No';
 
@@ -183,6 +187,7 @@ const ShowLoadedDetails = ({ details }) => {
                                 <p style={{ textAlign: 'center' }}>Femenino</p>
                             </div>
                         </div>
+                        <CenteredButton onclick={ handleSetShiny } text={ isShiny ? 'Versión normal' : 'Versión Shiny' }/>
                     </RoundedBox>
                     
                     <RoundedBox title="Estadisticas base:">
