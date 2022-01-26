@@ -12,8 +12,8 @@ export const getTypeColor = (type) => {
     }
 
     return {
-        bg: '#' + typeBg.bg.split('#')[1].replace(',',''),
-        border: typeBg.bg.split(',')[1].replace(')',''),
+        bg: '#' + typeBg.bg.split('#')[1].replace(',','').split(' ')[0],
+        border: typeBg.bg.split(',')[1].replace(')','').split(' ')[0],
     }
 };
 

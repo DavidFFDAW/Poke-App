@@ -3,7 +3,7 @@ import PokeBallSpinner from '../PokeSpinner/PokeBallSpinner';
 import { Link } from 'react-router-dom';
 import { getPokemonDetails } from '../../services/PokeAPI.service';
 import useCustomTranslate from '../../hooks/useTranslate';
-import RoundedBox, { RoundedBoxPad30, RoundedBoxWithInput, SimpleRoundBox } from '../RoundedBox/RoundedBox';
+import RoundedBox, { RoundedBoxPad30, SimpleRoundBox } from '../RoundedBox/RoundedBox';
 import SmallDataBox, { CenteredButton, FlipBox } from '../SmallDataBox/SmallDataBox';
 import { TypeTag } from '../TypeTag/TypeTag';
 import TypeRelations from '../TypeRelations/TypeRelations';
@@ -11,6 +11,7 @@ import './pokeFullDetails.css';
 import ShowMoreList from '../ShowMoreList/List';
 import { parseChartStatistics, getTypeColor } from '../../Utils/GeneralUtils';
 import { PokeStatsChart } from '../PokeStatsChart/Radar';
+import { useHistory } from 'react-router-dom';
 
 const Arrow = ({ trigger, level }) => {
     return (
@@ -90,6 +91,7 @@ export const InformationArray = ({ text, array, type, line }) => {
 
 const ShowLoadedDetails = ({ details }) => {
 
+    const history = useHistory();
     const { getLanguage } = useCustomTranslate();
     const [ isShiny, setShiny ] = useState(false);
 
@@ -98,7 +100,7 @@ const ShowLoadedDetails = ({ details }) => {
     const maleSprite =  isShiny ? maleShiny : details.sprites.other.home.front_default || details.sprites.front_default;
     const femaleSprite = isShiny ? femaleShiny : details.sprites.other.home.front_female || details.sprites.front_female;
     const finalFemaleSprite = femaleSprite || maleSprite;
-    
+
     const pokemonStats = parseChartStatistics(details.stats,details.name, getTypeColor(details.types[0].type.name));
     // console.log(details.abilities);
 
@@ -108,11 +110,23 @@ const ShowLoadedDetails = ({ details }) => {
         setShiny(!isShiny);
     }
 
+    const getNextOrPrevPokemon = operation => {
+        const newID = operation === 'prev' ? (details.id - 1) : (details.id + 1);
+        return history.push(`/pokemon/${ newID }`);
+    }
+
     const information = details.specieInfo.flavor_text_entries.filter(entry => entry.language.name === getLanguage())[0] || { flavor_text: '' };
     
     
     return (
         <>
+            <div className='flex between' style={{
+                padding: '5px 50px',
+                marginBottom: '20px'
+            }}>
+                { details.id !== 1 ? <CenteredButton text={ 'Pokemon anterior' } onclick={ _ => getNextOrPrevPokemon('prev') }></CenteredButton> : <div/> }
+                <CenteredButton text={ 'Siguiente pokemon' } onclick={ _ => getNextOrPrevPokemon('next') }></CenteredButton>
+            </div>
             <div className="flex-start between">
                 <SmallDataBox>
                     <FlipBox 
