@@ -210,7 +210,7 @@ const ShowLoadedDetails = ({ details }) => {
                         </div>
                     </RoundedBox>
                     
-                    <CenteredButton onclick={ _ => window.scrollTo(0,0) } text="Volver arriba" />
+                    <CenteredButton onclick={ _ => ({top: 0, behavior: 'smooth'}) } text="Volver arriba" />
 
                 </div>
             </div>
