@@ -220,7 +220,9 @@ const ShowLoadedDetails = ({ details }) => {
                         <div className='flex center base-stats'>
                             <PokeStatsChart stats={ pokemonStats }/>
                         </div>
-                    </RoundedBox>                    
+                    </RoundedBox>
+                    
+                    <CenteredButton onclick={ _ => window.scrollTo({top: 0, behavior: 'smooth'}) } text="Volver arriba" />
 
                 </div>
             </div>
