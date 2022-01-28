@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import PokeBallSpinner from '../PokeSpinner/PokeBallSpinner';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { getPokemonDetails } from '../../services/PokeAPI.service';
 import useCustomTranslate from '../../hooks/useTranslate';
 import RoundedBox, { RoundedBoxPad30, SimpleRoundBox } from '../RoundedBox/RoundedBox';
 import SmallDataBox, { CenteredButton, FlipBox } from '../SmallDataBox/SmallDataBox';
 import { TypeTag } from '../TypeTag/TypeTag';
 import TypeRelations from '../TypeRelations/TypeRelations';
-import './pokeFullDetails.css';
 import ShowMoreList from '../ShowMoreList/List';
 import { parseChartStatistics, getTypeColor } from '../../Utils/GeneralUtils';
 import { PokeStatsChart } from '../PokeStatsChart/Radar';
-import { useHistory } from 'react-router-dom';
+import './pokeFullDetails.css';
+import usePokemonName from '../../hooks/usePokeName';
+import useRecentSearchs from '../../hooks/useRecentSearchs';
 
 const Arrow = ({ trigger, level }) => {
     return (
@@ -92,8 +93,19 @@ export const InformationArray = ({ text, array, type, line }) => {
 const ShowLoadedDetails = ({ details }) => {
 
     const history = useHistory();
+    const { setPokemonName } = usePokemonName();
+    const { addRecentSearch } = useRecentSearchs();
     const { getLanguage } = useCustomTranslate();
     const [ isShiny, setShiny ] = useState(false);
+
+    useEffect(() => {
+        setPokemonName(details.name);
+        addRecentSearch({
+            name: details.name,
+            url: history.location.pathname,
+            img: details.sprites.front_default
+        });
+    } , [details, setPokemonName, addRecentSearch, history]);
 
     const maleShiny = details.sprites.other.home.front_shiny || details.sprites.front_shiny;
     const femaleShiny = details.sprites.other.home.front_shiny_female || details.sprites.front_shiny_female;
@@ -102,7 +114,6 @@ const ShowLoadedDetails = ({ details }) => {
     const finalFemaleSprite = femaleSprite || maleSprite;
 
     const pokemonStats = parseChartStatistics(details.stats,details.name, getTypeColor(details.types[0].type.name));
-    // console.log(details.abilities);
 
     const isProperty = property => property ? 'Yes' : 'No';
 
@@ -151,6 +162,7 @@ const ShowLoadedDetails = ({ details }) => {
                         {details.specieInfo.evolves_from_species && <InformationRow text="Evolución previa" data={details.specieInfo.evolves_from_species.name} line link/>}
                         <InformationArray text="Grupo Huevo" array={details.specieInfo.egg_groups} line/>
                         <InformationRow text="Exp de combate" data={details.base_experience}/>                            
+                        {/* <InformationArray text="Habilidades" array={details.abilities.map(it => it)} line/> */}
                     </div>
                     <div className='flex center'>
                         <img className="animated-artwork" alt='Animated pokemon sprite or official artwork' src={ details.sprites.versions['generation-v']['black-white'].animated.front_default || details.sprites.other['official-artwork'].front_default } />
