@@ -121,7 +121,7 @@
   
   /* Change color of dropdown links on hover */
   .dropdown-content .link:hover {
-        background: linear-gradient(#ffffff, #f1f1f1, #ffffff);
+        background: linear-gradient(#ffffff, #dddddd, #ffffff);
   }
   .dropdown-content .link:first-child {
         border-radius: 0 20px 0 0;
@@ -162,7 +162,7 @@
   .boxed .text .name {
       text-transform: uppercase;
         color: #1b1b1b;
-        font-size: 20px;
+        font-size: 14px;
         font-weight: bold;
         margin: 0px;
         padding: 0px;
