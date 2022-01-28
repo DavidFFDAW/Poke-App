@@ -8,6 +8,7 @@ import PokemonDetailPage from './pages/PokemonDetailPage';
 import PokemonSearchPage from './pages/PokemonSearchPage';
 import PokeMoveInfoPage from './pages/PokeMoveInfoPage';
 import './App.css';
+import { PokeContextProvider } from './Context/PokeContext';
 
 function App() {
 
@@ -16,24 +17,26 @@ function App() {
   }
 
   return (
-    <Router>
-      <PokeHeader></PokeHeader>
-      <Switch>
-        <Route path="/" exact>
-          <HomePage/>
-        </Route>
-        <Route path="/pokemon/:name" exact>
-          <PokemonDetailPage/>
-        </Route>
-        <Route path="/pokemon/search/:name" exact>
-          <PokemonSearchPage/>
-        </Route>
-        <Route path="/pokemon/move/info/:move" exact>
-          <PokeMoveInfoPage/>
-        </Route>
-      </Switch>
-      <PokeFooter></PokeFooter>
-    </Router>
+    <PokeContextProvider>
+      <Router>
+        <PokeHeader></PokeHeader>
+        <Switch>
+          <Route path="/" exact>
+            <HomePage/>
+          </Route>
+          <Route path="/pokemon/:name" exact>
+            <PokemonDetailPage/>
+          </Route>
+          <Route path="/pokemon/search/:name" exact>
+            <PokemonSearchPage/>
+          </Route>
+          <Route path="/pokemon/move/info/:move" exact>
+            <PokeMoveInfoPage/>
+          </Route>
+        </Switch>
+        <PokeFooter></PokeFooter>
+      </Router>
+    </PokeContextProvider>
   );
 }
 
