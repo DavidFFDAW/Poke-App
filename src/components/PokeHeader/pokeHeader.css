@@ -160,6 +160,8 @@
   }
 
   .boxed .text .name {
+      text-transform: uppercase;
+        color: #1b1b1b;
         font-size: 20px;
         font-weight: bold;
         margin: 0px;
