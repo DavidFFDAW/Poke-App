@@ -101,6 +101,7 @@ const ShowLoadedDetails = ({ details }) => {
     useEffect(() => {
         setPokemonName(details.name);
         addRecentSearch({
+            id: details.id,
             name: details.name,
             url: history.location.pathname,
             img: details.sprites.front_default
