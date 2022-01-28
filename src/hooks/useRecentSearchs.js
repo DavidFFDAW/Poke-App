@@ -6,11 +6,11 @@ export default function useRecentSearchs() {
 
     const addRecentSearch = useCallback(item => {
         // item: { name, img, url }
-        const initialArray = (recentSearchs.length >= 6) 
+        const initialArray = (recentSearchs.length > 6) 
             ? recentSearchs.slice(1) 
             : recentSearchs;
 
-        const finalSearchs = (initialArray.some(it => it.name === item.name))
+        const finalSearchs = (initialArray.some(it => it.id === item.id))
             ? initialArray 
             : [ ...initialArray, item ];
 
