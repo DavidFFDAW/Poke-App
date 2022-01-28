@@ -14,7 +14,7 @@ export default function PokeHeader() {
     const { t } = useTranslation();
     const history = useHistory();
     const { setPokemonName, getPokemonNameInUse } = usePokemonName();
-    // const { getRecentSearchs } = useRecentSearchs();
+    const { getRecentSearchs } = useRecentSearchs();
     const { pathname } = useLocation();
 
     const handleChangeKeyword = (ev) => {        
@@ -58,7 +58,27 @@ export default function PokeHeader() {
                     </div>
                 </div> }
 
-                {/* DropDown Component */}
+                <div class="dropdown">
+                    <button class="dropbtn">Búsquedas recientes</button>
+                    <div class="dropdown-content">
+                        { getRecentSearchs().map(poke => {
+                            return (
+                                <div class="boxed link">
+                                    <div>
+                                        <img src={ poke.img } alt={ poke.name } />
+                                    </div>
+                                    <div>
+                                        <div class="text">
+                                                <h4 class="name">{ poke.name }</h4>
+                                                <p class="url">{ poke.url }</p>
+                                        </div>
+                                        <p class="date">{ poke.date || new Date().toJSON().slice(0,10).replace(/-/g,'/') }</p>
+                                    </div>
+                                </div>
+                            )
+                        }) }                        
+                    </div>
+                </div>
 
                 <div className="header-home-link flex between" onClick={ handleSendHome }>
                     <img className="poke-logo" alt="pokeball-logo" src={ `${config.appUrl }/pokeball.png` }></img>
