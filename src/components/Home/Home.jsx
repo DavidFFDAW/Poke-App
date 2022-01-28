@@ -1,30 +1,32 @@
-import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import ScrollView from '../ScrollView/ScrollView';
 import { config } from '../../constants/config';
-import customTranslation from '../../hooks/useTranslate'
-import { capitalizeName } from '../../Utils/GeneralUtils';
+import customTranslation from '../../hooks/useTranslate';
+import usePokemonName from '../../hooks/usePokeName';
 
 export default function Home (){
 
-    const history = useHistory();
-    const lastSearch = localStorage.getItem('lastSearch') || 'pikachu';
+    const history = useHistory();    
     const { getMoveFromTranslation } = customTranslation();
-    const [ search, setSearch ] = useState(capitalizeName(lastSearch));
+    const { getPokemonNameInUse, setPokemonName } = usePokemonName();
+    // const [ search, setSearch ] = useState(getPokemonNameInUse());
 
     const handleChangeSearch = (ev) => {
-      setSearch(ev.target.value);
+        setPokemonName(ev.target.value);
+        // setSearch(ev.target.value);
     }
 
     const handleSearchByFilter = () => {
-      if (search !== ''){
-        localStorage.setItem('lastSearch', search);
-        const route = Number.isInteger( +search ) ? `/pokemon/${ search }` : `/pokemon/search/${ search.toLowerCase() }`;
-        history.push(route);
-      }
+        const search = getPokemonNameInUse();
+        if (search !== ''){
+            localStorage.setItem('lastSearch', search);
+            const route = Number.isInteger( +search ) ? `/pokemon/${ search }` : `/pokemon/search/${ search.toLowerCase() }`;
+            history.push(route);
+        }
     }
 
     const handleSearchMove = () => {
+        const search = getPokemonNameInUse();
         if (search !== ''){
             const moveToSearch = getMoveFromTranslation(search);
             history.push(`/pokemon/move/info/${ moveToSearch }`);
@@ -40,7 +42,7 @@ export default function Home (){
             <div className="zindex flex center">
                 <img src={ `${config.appUrl}/pokeball.png` } width="50" height="50" alt="" />
             <div>
-                <input type="text" className="general-input inpt-pad" value={ search } onChange={ handleChangeSearch } />
+                <input type="text" className="general-input inpt-pad" value={ getPokemonNameInUse() } onChange={ handleChangeSearch } />
                 <div className="btn-group">
                 <button className="btn btn-download" type="button">¿____?</button>
                 <button className="btn btn-download" type="button" onClick={ handleSearchByFilter }>Pokemon</button>
