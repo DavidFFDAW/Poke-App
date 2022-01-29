@@ -1,8 +1,10 @@
 import React from 'react';
-import { config } from '../../constants/config';
+import { availablePokeballs, config } from '../../constants/config';
 import './spinner.css';
 
 export default function PokeBallSpinner({ size }) {
+
+    const randomPokeball = availablePokeballs[Math.floor(Math.random() * availablePokeballs.length)];
 
     const small = {
         width: 70,
@@ -19,7 +21,7 @@ export default function PokeBallSpinner({ size }) {
     return (
         <>
             <div className="flex between spinner">
-                <img className="rotation" style={ sizes[ size || 'medium' ] } src={ `${config.appUrl}/pokeball.png` } alt="pokeball logo" />
+                <img className="rotation" style={ sizes[ size || 'medium' ] } src={ `${config.appUrl}/images/${ randomPokeball }.png` } alt={ `${ randomPokeball } logo` } />
             </div>
         </>
     );

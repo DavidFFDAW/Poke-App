@@ -3,6 +3,17 @@ const environment = 'dev';
 const local = 'http://localhost:3000/';
 const vercelApp = 'https://poke-app-davidfernandez.vercel.app/';
 
+export const availablePokeballs = [
+    'pokeball',
+    'superball',
+    'ultraball',
+    'nidoball',
+    'turnoball',
+    'ocasoball',
+    'ultraball',
+    'masterball',
+];
+
 const getURL = _ => environment === 'dev' ? local : vercelApp;
 
 export const config = {
