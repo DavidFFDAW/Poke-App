@@ -1,4 +1,4 @@
-const environment = 'prod';
+const environment = 'dev';
 
 const local = 'http://localhost:3000/';
 const vercelApp = 'https://poke-app-davidfernandez.vercel.app/';

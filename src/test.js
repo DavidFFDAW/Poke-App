@@ -36,6 +36,23 @@
 
 // getEvolutions().then(console.log);
 
-const gr = 'linear-gradient( #FAE078,#F8D030 )';
-console.log('#' + gr.split('#')[1].replace(',',''));
-console.log(gr.split(',')[1].replace(')',''));
+// const gr = 'linear-gradient( #FAE078,#F8D030 )';
+// console.log('#' + gr.split('#')[1].replace(',',''));
+// console.log(gr.split(',')[1].replace(')',''));
+
+const arr = [ 'arr', 'arr2' ];
+
+function addRecentSearch (item = {}) {
+    if (arr.length >= 6) {
+        arr.shift();
+    }
+    arr.push(item);
+}
+
+addRecentSearch({ name: 'test1' });
+addRecentSearch({ name: 'test2' });
+addRecentSearch({ name: 'test3' });
+addRecentSearch({ name: 'test4' });
+addRecentSearch({ name: 'test5' });
+
+console.log(arr);

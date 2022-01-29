@@ -40,7 +40,7 @@ export default function Home (){
             <div className="bg-red"></div>
 
             <div className="zindex flex center">
-                <img src={ `${config.appUrl}/pokeball.png` } width="50" height="50" alt="" />
+                <img src={ `${config.appUrl}/images/pokeball.png` } width="50" height="50" alt="" />
             <div>
                 <input type="text" className="general-input inpt-pad" value={ getPokemonNameInUse() } onChange={ handleChangeSearch } />
                 <div className="btn-group">

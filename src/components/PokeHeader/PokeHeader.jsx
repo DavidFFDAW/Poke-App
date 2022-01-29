@@ -3,9 +3,9 @@ import { useHistory, useLocation } from 'react-router-dom';
 import { config } from '../../constants/config';
 import { useTranslation } from 'react-i18next';   
 import usePokemonName from '../../hooks/usePokeName';
+import useRecentSearchs from '../../hooks/useRecentSearchs';
 /*import { getFilteredPokemonsByName } from '../../services/PokeAPI.service';*/
 import './pokeHeader.css';
-import useRecentSearchs from '../../hooks/useRecentSearchs';
 
 
 export default function PokeHeader() {
@@ -61,7 +61,7 @@ export default function PokeHeader() {
                 {/* DropDown Component */}
 
                 <div className="header-home-link flex between" onClick={ handleSendHome }>
-                    <img className="poke-logo" alt="pokeball-logo" src={ `${config.appUrl }/pokeball.png` }></img>
+                    <img className="poke-logo" alt="pokeball-logo" src={ `${config.appUrl }/images/pokeball.png` }></img>
                     <span translate='no'>PokeInfo App</span>
                 </div>
                 <div className="last input-div">
