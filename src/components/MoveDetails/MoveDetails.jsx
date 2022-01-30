@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { config } from '../../constants/config';
 import { getMoveInfo } from '../../services/PokeAPI.service';
 import useCustomTranslate from '../../hooks/useTranslate';
-import { InformationRow } from '../PokeFullDetails/PokemonFullDetails';
+import { InformationRow } from '../PokeFullDetails/InformationRow';
 import PokeBallSpinner from '../PokeSpinner/PokeBallSpinner';
 import RoundedBox, { SimpleRoundBox } from '../RoundedBox/RoundedBox';
 import SmallDataBox, { FlipBox } from '../SmallDataBox/SmallDataBox';

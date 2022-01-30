@@ -58,21 +58,21 @@ export default function PokeHeader() {
                     </div>
                 </div> }
 
-                <div class="dropdown">
-                    <button class="dropbtn">Búsquedas recientes</button>
-                    <div class="dropdown-content">
-                        { getRecentSearchs().map(poke => {
+                <div className="dropdown">
+                    <button className="dropbtn">Búsquedas recientes</button>
+                    <div className="dropdown-content">
+                        { getRecentSearchs().map((poke,it) => {
                             return (
-                                <div class="boxed link">
+                                <div className="boxed link" key={ it }>
                                     <div>
                                         <img src={ poke.img } alt={ poke.name } />
                                     </div>
                                     <div>
-                                        <div class="text">
-                                                <h4 class="name">{ poke.name }</h4>
-                                                <p class="url">{ poke.url }</p>
+                                        <div className="text">
+                                                <h4 className="name">{ poke.name }</h4>
+                                                <p className="url">{ poke.url }</p>
                                         </div>
-                                        <p class="date">{ poke.date || new Date().toJSON().slice(0,10).replace(/-/g,'/') }</p>
+                                        <p className="date">{ poke.date || new Date().toJSON().slice(0,10).replace(/-/g,'/') }</p>
                                     </div>
                                 </div>
                             )
