@@ -8,8 +8,8 @@ import { CenteredButton } from '../SmallDataBox/SmallDataBox';
 import { parseChartStatistics, getTypeColor } from '../../Utils/GeneralUtils';
 import usePokemonName from '../../hooks/usePokeName';
 import useRecentSearchs from '../../hooks/useRecentSearchs';
-import './pokeFullDetails.css';
 import { RightPanel } from './RightPanel';
+import './pokeFullDetails.css';
 
 
 const ShowLoadedDetails = ({ details }) => {

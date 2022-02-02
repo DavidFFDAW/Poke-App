@@ -5,6 +5,10 @@ import { generations } from '../../constants/types.data';
 
 
 export const LeftPanel = ({ isShiny, handleSetShiny, details, isProperty }) => {
+
+    const animatedSprite = { front: details.sprites.versions['generation-v']['black-white'].animated.front_default, back: details.sprites.versions['generation-v']['black-white'].animated.back_default };
+    const animatedShinySprite = { front: details.sprites.versions['generation-v']['black-white'].animated.front_shiny, back: details.sprites.versions['generation-v']['black-white'].animated.back_shiny };
+    const finalAnimatedSprite = isShiny ? animatedShinySprite : animatedSprite;
     return (
         <SmallDataBox>
             <FlipBox 
@@ -32,8 +36,8 @@ export const LeftPanel = ({ isShiny, handleSetShiny, details, isProperty }) => {
                 {/* <InformationArray text="Habilidades" array={details.abilities.map(it => it)} line/> */}
             </div>
             <div className='flex center'>
-                <img className="animated-artwork" alt='Animated pokemon sprite or official artwork' src={ details.sprites.versions['generation-v']['black-white'].animated.front_default || details.sprites.other['official-artwork'].front_default } />
-                { details.sprites.versions['generation-v']['black-white'].animated.back_default && <img className="animated-artwork" alt='Animated pokemon sprite or official artwork' src={ details.sprites.versions['generation-v']['black-white'].animated.back_default} /> }
+                <img className="animated-artwork" alt='Animated pokemon sprite or official artwork' src={ finalAnimatedSprite.front || details.sprites.other['official-artwork'].front_default } />
+                { finalAnimatedSprite.back && <img className="animated-artwork" alt='Animated pokemon sprite or official artwork' src={ finalAnimatedSprite.back } /> }
             </div>
         </SmallDataBox>
     );
