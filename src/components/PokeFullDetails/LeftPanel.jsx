@@ -23,9 +23,9 @@ export const LeftPanel = ({ isShiny, handleSetShiny, details, isProperty }) => {
                 <InformationRow text="Nombre" data={details.name} upper line translate="no"/>
                 <InformationRow text="Generación" data={ generations[details.specieInfo.generation.name] || 'None' } upper line/>
                 <InformationArray text="Tipo(s)" array={details.types} type="type" line/>
-                <InformationRow text="Altura" data={details.height} line/>
+                <InformationRow text="Altura" data={`${details.height / 10} m`} line/>
+                <InformationRow text="Peso" data={`${details.weight / 10} kg`} line/>
                 <InformationRow text="Orden" data={details.order} line/>
-                <InformationRow text="Peso" data={details.weight} line/>
                 <InformationRow text="Bebe" data={isProperty(details.specieInfo.is_baby)} line/>
                 <InformationRow text="Mítico" data={isProperty(details.specieInfo.is_mytical)} line/>
                 <InformationRow text="Legendario" data={isProperty(details.specieInfo.is_legendary)} line/>
