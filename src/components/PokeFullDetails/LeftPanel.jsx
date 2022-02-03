@@ -17,7 +17,6 @@ export const LeftPanel = ({ isShiny, handleSetShiny, details, isProperty }) => {
             />
             <CenteredButton onclick={ handleSetShiny } text={ isShiny ? 'Ver normal' : 'Ver shiny' }/>
 
-
             <div className="down">
                 <InformationRow text="ID" data={details.id} line/>
                 <InformationRow text="Nombre" data={details.name} upper line translate="no"/>

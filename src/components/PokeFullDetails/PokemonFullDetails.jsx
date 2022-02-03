@@ -15,12 +15,19 @@ import './pokeFullDetails.css';
 const ShowLoadedDetails = ({ details }) => {
 
     const history = useHistory();
+    const [ isBottomPage, setBottomPage ] = useState(false);
     const { setPokemonName } = usePokemonName();
     const { addRecentSearch } = useRecentSearchs();
     const { getLanguage } = useCustomTranslate();
     const [ isShiny, setShiny ] = useState(false);
 
+    const handleScroll = () => {
+        const bottom = (window.innerHeight + window.scrollY) >= (document.body.offsetHeight / 2);
+        setBottomPage(bottom);
+    }
+
     useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
         setPokemonName(details.name);
         addRecentSearch({
             id: details.id,
@@ -76,6 +83,11 @@ const ShowLoadedDetails = ({ details }) => {
                     />
                 </div>
             </div>
+
+            { isBottomPage 
+                && 
+            <button className="btn btn-download rd fix" onClick={ _ => window.scrollTo({top: 0, behavior: 'smooth'}) } >Volver arriba </button> }
+
         </>
     );
 }

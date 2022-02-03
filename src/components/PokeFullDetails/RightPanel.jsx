@@ -56,9 +56,7 @@ export const RightPanel = ({ details, isShiny, handleSetShiny, maleSprite, final
                 <div className='flex center base-stats'>
                     <PokeStatsChart stats={ pokemonStats }/>
                 </div>
-            </RoundedBox>
-        
-            <CenteredButton onclick={ _ => window.scrollTo({top: 0, behavior: 'smooth'}) } text="Volver arriba" />
+            </RoundedBox>        
         </>
     );
 }
