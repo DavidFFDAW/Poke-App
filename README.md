@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://poke-app-davidfernandez.vercel.app/" target="_blank"><img src="./public/pokeball.png" width="100" alt="Poke Ball logo" /></a>
+  <a href="https://poke-app-davidfernandez.vercel.app/" target="_blank"><img src="./public/images/pokeball.png" width="100" alt="Poke Ball logo" /></a>
 </p>
 
 <p align="center" ><b>PokeInfo App</b>, la aplicación de pokemon.</p>
