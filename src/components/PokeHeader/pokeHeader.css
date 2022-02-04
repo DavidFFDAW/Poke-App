@@ -121,7 +121,7 @@
   
   /* Change color of dropdown links on hover */
   .dropdown-content .link:hover {
-        background: linear-gradient(#ffffff, #dddddd, #ffffff);
+        background: linear-gradient(#ffffff, #eeeded, #ffffff);
   }
   .dropdown-content .link:first-child {
         border-radius: 0 20px 0 0;
@@ -140,7 +140,7 @@
   }
 
   .boxed {
-        display: flex;
+        display: flex !important;
         justify-content: flex-start;
         align-items: flex-start;
         position: relative;

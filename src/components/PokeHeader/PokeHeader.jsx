@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import { config } from '../../constants/config';
 import { useTranslation } from 'react-i18next';   
 import usePokemonName from '../../hooks/usePokeName';
@@ -63,7 +63,7 @@ export default function PokeHeader() {
                     <div className="dropdown-content">
                         { getRecentSearchs().map((poke,it) => {
                             return (
-                                <div className="boxed link" key={ it }>
+                                <Link className="boxed link" key={ it } to={ poke.url }>
                                     <div>
                                         <img src={ poke.img } alt={ poke.name } />
                                     </div>
@@ -74,7 +74,7 @@ export default function PokeHeader() {
                                         </div>
                                         <p className="date">{ poke.date || new Date().toJSON().slice(0,10).replace(/-/g,'/') }</p>
                                     </div>
-                                </div>
+                                </Link>
                             )
                         }) }                        
                     </div>
