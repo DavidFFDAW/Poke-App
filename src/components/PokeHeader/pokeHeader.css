@@ -145,8 +145,10 @@
         align-items: flex-start;
         position: relative;
   }
-  .boxed .img {
-        width: 100%;
+  .boxed img {
+        width: 96px;
+        height: 96px;
+        object-fit: cover;
   }
 
   .boxed .text {

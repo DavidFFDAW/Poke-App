@@ -5,8 +5,11 @@ import useCustomTranslate from '../../hooks/useTranslate';
 import { InformationRow } from '../PokeFullDetails/InformationRow';
 import PokeBallSpinner from '../PokeSpinner/PokeBallSpinner';
 import RoundedBox, { SimpleRoundBox } from '../RoundedBox/RoundedBox';
+import useRecentSearchs from '../../hooks/useRecentSearchs';
 import SmallDataBox, { FlipBox } from '../SmallDataBox/SmallDataBox';
+// import { config } from '../../constants/config';
 import ShowMoreList from '../ShowMoreList/List';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 
 const MoveInfo = ({ moveInfo }) => {
@@ -62,16 +65,25 @@ const MoveInfo = ({ moveInfo }) => {
 export default function MoveDetails({ name }) {    
 
     const [ moveInfo, setMoveInfo ] = useState({});
+    const history = useHistory();
     const [ isLoading, setLoading ] = useState(true);
+    const { addRecentSearch } = useRecentSearchs();
 
     useEffect(() => {
         getMoveInfo(name).then(information => {
             console.log(information);
             setMoveInfo(information);        
             setLoading(false);
+            addRecentSearch({
+                type: 'move',
+                id: information.id,
+                name: information.name,
+                url: history.location.pathname,
+                img: `${ config.appUrl }/images/mt_disc.png`
+            });
         });
 
-    },[ name ]);
+    },[ name, addRecentSearch, history ]);
 
     return (
         <div className="flex center">

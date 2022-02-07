@@ -10,7 +10,8 @@ export default function useRecentSearchs() {
             ? recentSearchs.slice(1) 
             : recentSearchs;
 
-        const finalSearchs = (initialArray.some(it => it.id === item.id))
+        const arrayByType = initialArray.filter(it => item.type === it.type);
+        const finalSearchs = (arrayByType.some(it => it.id === item.id))
             ? initialArray 
             : [ ...initialArray, item ];
 

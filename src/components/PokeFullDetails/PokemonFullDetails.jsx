@@ -30,6 +30,7 @@ const ShowLoadedDetails = ({ details }) => {
         window.addEventListener('scroll', handleScroll);
         setPokemonName(details.name);
         addRecentSearch({
+            type: 'pokemon',
             id: details.id,
             name: details.name,
             url: history.location.pathname,
