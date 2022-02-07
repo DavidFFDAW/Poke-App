@@ -209,4 +209,5 @@ input.inpt-pad{ box-sizing: border-box; padding: 20px; }
     .btn-group { flex-direction: column; }
     .btn-group .btn { border-radius: 0 !important; margin: 2px 0; }
     .bg-red { height: 350px; }
+    .poke-header .dropdown { display: none; }
 }
