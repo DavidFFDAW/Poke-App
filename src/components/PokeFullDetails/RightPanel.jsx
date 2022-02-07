@@ -2,7 +2,7 @@ import { EvolutionChain } from './EvolutionChain';
 import RoundedBox, { RoundedBoxPad30, SimpleRoundBox } from '../RoundedBox/RoundedBox';
 import TypeRelations from '../TypeRelations/TypeRelations';
 import ShowMoreList from '../ShowMoreList/List';
-import { PokeStatsChart } from '../PokeStatsChart/Radar';
+import { PokeStatsChart } from '../PokeStatsChart/Bar';
 import { CenteredButton } from '../SmallDataBox/SmallDataBox';
 
 export const RightPanel = ({ details, isShiny, handleSetShiny, maleSprite, finalFemaleSprite, pokemonStats, information }) => {
