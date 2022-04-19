@@ -12,6 +12,7 @@ export default function HomePage(){
     
         });
       }
+      fetch('http://vps-f87b433e.vps.ovh.net/impression.php?action=impression&type=HOME&app=Pokemon-App');
     },[]);
 
     return (
